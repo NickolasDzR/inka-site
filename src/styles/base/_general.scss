@@ -54,6 +54,46 @@ a {
     align-items: center;
 }
 
+h1 {
+    @media (min-width: $break_md) {
+        font-size: 38px;
+    }
+    @media (min-width: $break_lg) {
+        font-size: 48px;
+    }
+    font-size: 26px;
+    color: $blue;
+}
+
+.header {
+    @media (min-width: $break_md) {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @media (min-width: $break_xl) {
+        padding-top: 0;
+        padding-bottom: 159px;
+    }
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    &__logo {
+        @media (min-width: $break_md) {
+            display: none;
+        }
+        @extend .nav__logo;
+    }
+}
+
+.main {
+    padding-top: 60px;
+    @media (min-width: $break_xl) {
+        padding-top: 0;
+    }
+}
+
 @-webkit-keyframes bounceInLeft {
     0%, 60%, 75%, 90%, to {
         -webkit-animation-timing-function: cubic-bezier(.215, .61, .355, 1);

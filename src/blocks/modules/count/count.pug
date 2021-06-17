@@ -1,0 +1,15 @@
+mixin count(value = false)
+    +b.SECTION.count
+        +picture({
+            name: "products-number",
+            format: "webp",
+            class: "background-img"
+        })
+        .container
+            .row
+                +e.UL.list
+                    each val in value.countList
+                        +e.LI.item(data-counter-num=val[0])
+                            +e.P.number
+                            +e.P.text #{val[1]}
+

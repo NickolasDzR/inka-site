@@ -2,7 +2,16 @@ $listItems: 4;
 $staticNavigationMediaBreak: $break_md;
 
 .nav {
+    @media (min-width: $break_md) {
+        position: static;
+        width: 100%;
+    }
+    position: absolute;
+    top: 0;
+    background-color: lightgray;
+    width: calc(100% + 30px);
     padding-top: 15px;
+    padding-bottom: 15px;
     visibility: hidden;
     pointer-events: none;
     transition-property: visibility, pointer-events;
@@ -14,6 +23,9 @@ $staticNavigationMediaBreak: $break_md;
         visibility: visible;
         pointer-events: auto;
         animation: none;
+    }
+    @media (min-width: $break_md) {
+        background-color: inherit;
     }
     &_active {
         visibility: visible;
@@ -32,10 +44,12 @@ $staticNavigationMediaBreak: $break_md;
         @media (min-width: $staticNavigationMediaBreak) {
             flex-grow: 0;
             width: auto;
+            margin-bottom: 0;
         }
     }
 
     &__logo {
+        display: block;
         max-width: 90px;
         height: 32px;
     }
@@ -53,9 +67,12 @@ $staticNavigationMediaBreak: $break_md;
     }
 
     &__item {
+        @media (min-width: $break_md) {
+            margin-bottom: 0;
+        }
         margin-bottom: 3px;
         &_bounceInLeft {
-            animation-duration: .8s;
+            animation-duration: 1s;
             animation-name: bounceInLeft;
             animation-fill-mode: both;
         }
@@ -65,14 +82,16 @@ $staticNavigationMediaBreak: $break_md;
                 animation-delay: #{$baseDelay * $i}s;
             }
         }
+    }
+    &__item + &__item {
         @media (min-width: $staticNavigationMediaBreak) {
-            margin-right: 40px;
+            margin-left: 40px;
         }
         @media (min-width: $break_lg) {
-            margin-right: 60px;
+            margin-left: 60px;
         }
         @media (min-width: $break_xl) {
-            margin-right: 80px;
+            margin-left: 80px;
         }
     }
 

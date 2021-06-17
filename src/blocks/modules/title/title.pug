@@ -1,0 +1,41 @@
+mixin title(value = false)
+    +b.SECTION.title
+        .container
+            .row.title__row
+                +e.content
+                    +e.H1.heading #{value.heading}
+                    +e.UL.list
+                        each val in value.titleList
+                            +e.LI.item #{val}
+                    +e.UL.worth
+                            +e.LI.worth-item
+                                +e.worth-item-wrp Under<br> <span class="title__worth-text_big">30$</span><br> interest rate
+                            +e.LI.worth-item
+                                +e.worth-item-wrp <span class="title__worth-text_medium">Best</span><br> exchange rate<br> <span class="title__worth-text_medium">Worldwide</span>
+                            +e.LI.worth-item
+                                +e.worth-item-wrp <span class="title__worth-text_medium">All</span><br> llservices &<br> cryptocurrencies<br> <span class="title__worth-text_medium">in one</span> wallet
+                    +e.UL.app-store
+                        +e.LI.app-store-item
+                            +e.A.app-stire-link(href="https://apps.apple.com/ru/app/яндекс-карты/id313877526" target="_blank")
+                                +picture({
+                                    name: "app-store",
+                                    format: "webp"
+                                })
+                        +e.LI.app-store-item
+                            +e.A.app-store-link(href="https://play.google.com/store/apps/details?id=ru.yandex.yandexmaps" target="_blank")
+                                +picture({
+                                    name: "google-play",
+                                    format: "webp"
+                                })
+                        +e.LI.app-store-item
+                            +e.A.app-store-link(href="#")
+                                +picture({
+                                    name: "qr-code",
+                                    format: "webp"
+                                })
+
+                +e.img
+                    +picture({
+                        name: "title",
+                        format: "webp",
+                    })

@@ -1,0 +1,17 @@
+.count {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    position: relative;
+    background: linear-gradient(259.1deg, #1C1C9D 0%, #7171FF 35.3%, #C4CDFF 101.76%);
+    &__background-img {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        max-width: 740px;
+    }
+    &__list {
+        @include col();
+        @include size(12);
+    }
+}

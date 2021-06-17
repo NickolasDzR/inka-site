@@ -1,20 +1,37 @@
 extends layouts/default
 include helpers/mixins
-include ../blocks/modules/nav/nav
 include ../blocks/components/hamburger/hamburger
+include ../blocks/modules/nav/nav
+include ../blocks/modules/title/title
+include ../blocks/modules/count/count
 
 block variables
 	-
 		var
 			title = "inka"
 			navigationItems = ["About", "How it works", "Roadmap", "Docs"]
+			mainHeadingText = "Multiple chains wallet"
+			titleList = ["Earn easy in one click", "Keep your money safe"]
+			countList = [["8", "Chains"], ["100", "Cryptocurrencies"], ["15", "DeFi services"]]
 
 block content
 	include ../../node_modules/bemto.pug/bemto.pug
-	+b.HEADER
+	+b.HEADER.header
+		+icon({
+			name: "logo",
+			class: "header__logo",
+		})
 		+hamburger
 		+nav({
 			navigationListItems: navigationItems,
+		})
+	+b.MAIN.main
+		+title({
+			heading: mainHeadingText,
+			titleList: titleList,
+		})
+		+count({
+			countList: countList,
 		})
 
 block scripts

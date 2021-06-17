@@ -31,16 +31,16 @@ mixin picture(value = false)
                 media="(min-width: 568px)"
                 type="image/webp"
             )
-            source(srcset=`img/content/${value.name}@1x.${value.format} 1x,
+            source(srcset=`img/content/${value.name}.${value.format} 1x,
                 img/content/${value.name}@2x.${value.format} 2x`
                 media="(min-width: 568px)"
             )
-        source(srcset=`img/webp/${value.name}@1x.webp 1x,
-                img/webp/${value.name}@2x.webp 2x`
+        source(srcset=`img/content/${value.name}.webp 1x,
+                img/content/${value.name}@2x.webp 2x`
             type="image/webp"
         )
         +e.IMG(class=imgClass
             srcset=`img/content/${value.name}@2x.${value.format} 2x`
-            src=`img/content/${value.name}@1x.${value.format}`
+            src=`img/content/${value.name}.${value.format}`
             alt=value.alt
         )
