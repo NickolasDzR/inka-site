@@ -1,10 +1,21 @@
 extends layouts/default
 include helpers/mixins
+include ../blocks/modules/nav/nav
+include ../blocks/components/hamburger/hamburger
 
 block variables
-	- const title = "gulp-pug-starter"
+	-
+		var
+			title = "inka"
+			navigationItems = ["About", "How it works", "Roadmap", "Docs"]
 
 block content
+	include ../../node_modules/bemto.pug/bemto.pug
+	+b.HEADER
+		+hamburger
+		+nav({
+			navigationListItems: navigationItems,
+		})
 
 block scripts
 	script(src="js/main.js")

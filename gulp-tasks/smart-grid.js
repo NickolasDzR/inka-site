@@ -15,23 +15,23 @@ gulp.task("smart-grid", (cb) => {
         },
         container: {
             fields: "15px", // side fields - 15px
-            maxWidth: "1200px",
+            maxWidth: "1280px",
         },
         breakPoints: {
             xs: {
-                width: "420px" // 320px
+                width: "420px"
             },
             sm: {
-                width: "576px" // 576px
+                width: "576px"
             },
             md: {
-                width: "767px" // 767px
+                width: "767px"
             },
             lg: {
-                width: "992px" // 992px
+                width: "992px"
             },
             xl: {
-                width: "1280px" // 1200px
+                width: "1280px"
             }
         }
     });

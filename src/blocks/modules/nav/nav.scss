@@ -1,0 +1,84 @@
+$listItems: 4;
+$staticNavigationMediaBreak: $break_md;
+
+.nav {
+    padding-top: 15px;
+    visibility: hidden;
+    pointer-events: none;
+    transition-property: visibility, pointer-events;
+    transition-delay: 1s;
+    animation-duration: .8s;
+    animation-name: bounceOutLeft;
+    animation-fill-mode: both;
+    @media (min-width: $staticNavigationMediaBreak) {
+        visibility: visible;
+        pointer-events: auto;
+        animation: none;
+    }
+    &_active {
+        visibility: visible;
+        pointer-events: auto;
+        animation-duration: .8s;
+        animation-name: bounceInLeft;
+        animation-fill-mode: both;
+        transition-property: visibility, pointer-events;
+        transition-delay: 0s;
+    }
+
+    &__img {
+        @include col();
+        @include size(12);
+        margin-bottom: 15px;
+        @media (min-width: $staticNavigationMediaBreak) {
+            flex-grow: 0;
+            width: auto;
+        }
+    }
+
+    &__logo {
+        max-width: 90px;
+        height: 32px;
+    }
+
+    &__list {
+        @include col();
+        @include size(12);
+        @media (min-width: $staticNavigationMediaBreak) {
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: flex-end;
+            width: auto;
+        }
+    }
+
+    &__item {
+        margin-bottom: 3px;
+        &_bounceInLeft {
+            animation-duration: .8s;
+            animation-name: bounceInLeft;
+            animation-fill-mode: both;
+        }
+        @for $i from 1 through $listItems {
+            $baseDelay: 0.2;
+            &_bounceInLeft_0#{$i * 2}s {
+                animation-delay: #{$baseDelay * $i}s;
+            }
+        }
+        @media (min-width: $staticNavigationMediaBreak) {
+            margin-right: 40px;
+        }
+        @media (min-width: $break_lg) {
+            margin-right: 60px;
+        }
+        @media (min-width: $break_xl) {
+            margin-right: 80px;
+        }
+    }
+
+    &__link {
+        font-family: $font;
+        font-size: 18px;
+        color: $font-black;
+    }
+}

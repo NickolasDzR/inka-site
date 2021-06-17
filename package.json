@@ -69,7 +69,8 @@
         "stylelint-selector-bem-pattern": "^2.1.0",
         "webpack": "~4.44.1",
         "webpack-stream": "^5.2.1",
-        "yargs": "~15.4.1"
+        "yargs": "~15.4.1",
+        "bemto.pug": "^2.1.0"
     },
     "dependencies": {
         "smart-grid": "^2.1.2"

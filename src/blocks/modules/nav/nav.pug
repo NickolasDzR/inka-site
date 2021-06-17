@@ -1,0 +1,14 @@
+mixin nav(value = false)
+    +b.NAV.nav(data-items-animation="true")
+        .container
+            .row.d-flex
+                +e.img
+                    +icon({
+                        name: "logo",
+                        class: "nav__logo",
+                    })
+                +e.UL.list
+                    each item, index in value.navigationListItems
+                        +e.LI.item
+                            +e.A.link(href="#") #{item}
+
