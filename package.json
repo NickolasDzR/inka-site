@@ -30,6 +30,7 @@
         "@babel/core": "^7.4.3",
         "@babel/preset-env": "^7.4.3",
         "@babel/register": "^7.4.0",
+        "@glidejs/glide": "^3.4.1",
         "babel-eslint": "~10.1.0",
         "babel-loader": "^8.0.5",
         "bem-tools-core": "bem-tools/bem-tools-core",

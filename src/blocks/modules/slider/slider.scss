@@ -1,3 +1,82 @@
 .slider {
-    height: 1000px;
+    padding: 48px 0;
+    &__slider-controller {
+        @include col();
+        @include size(12);
+    }
+    &__slider-controller-wrp {
+        position: relative;
+        width: 290px;
+        height: 290px;
+    }
+    &__slides {
+        @include col();
+        @include size(12);
+    }
+    &__title {
+        font-size: 28px;
+        font-weight: bold;
+        color: $font-black;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    &__subtitle {
+        color: $font-black;
+        padding: 0;
+        margin: 0;
+    }
+    &__slider-controller-wrp {
+        & > div {
+            position: absolute;
+        }
+        & > div:nth-child(1) {
+            right: 33px;
+            top: 0;
+        }
+        & > div:nth-child(2) {
+            top: 70px;
+            right: 15px;
+        }
+        & > div:nth-child(3) {
+            bottom: 21px;
+            right: 27px;
+        }
+        & > div:nth-child(4) {
+            bottom: 20px;
+            right: 142px;
+        }
+        & > div:nth-child(5) {
+            top: 70px;
+            left: 15px;
+        }
+        & > div:nth-child(6) {
+            left: 33px;
+            top: 0;
+        }
+        & > div > img {
+            width: 115px;
+        }
+
+        & > div:nth-child(2) > img {
+            // 100px original
+            width: 60px;
+        }
+
+        & > div:nth-child(5) > img {
+            // 100px original
+            width: 60px;
+        }
+    }
+    &__slider-controller-circle {
+        z-index: 10;
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        right: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 160px;
+        height: 160px;
+    }
 }

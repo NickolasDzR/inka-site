@@ -27,7 +27,7 @@ block variables
             supportCrypto = ["tether", "dai", "ethereum", "chainlink", "usd-coin", "btc"];
             cryptocurrenciesList = ["Cryptocurrencies", "Exchange rate", "DeFi services", "Investments decisions"];
             solutionContent = [["Liquid swap","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","liquid-swap", "liquid-swap@x2"],["DeFi staking","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","defi-staking", "defi-staking@x2"],["DEX","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","dex", "dex@x2"],["Cryptofunds","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","crypto-founds", "crypto-founds@x2"]]
-
+            sliderSlides = [["Inka wallet", "Wallet security is based on international standards. The code can be checked by anybody."], ["Rating", "Rating of services by users (rating). You can view the rating of the service based on the user vote and make the right choice."], ["Anonymous chat", "User privacy is our top priority. We strive to provide the most effective services."], ["One click", "Everything is in the InKA app. No more switching to third-party apps. All DeFi services and cryptocurrencies are available in InKA."], ["Investments", "Investments in digital gold, silver and stablecoins. Invest in the best digital currencies and precious metals in our app."], ["Digital assets", "Sending digital assets in a chat. Send messages and cryptocurrency to any user directly in the chat."]]
 
 block content
     include ../../node_modules/bemto.pug/bemto.pug
@@ -65,7 +65,9 @@ block content
         +solution({
             solutionContent: solutionContent,
         })
-        +slider
+        +slider({
+            slides: sliderSlides,
+        })
 
 block scripts
     script(src="js/main.js")

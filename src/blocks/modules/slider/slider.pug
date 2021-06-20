@@ -2,3 +2,26 @@ mixin slider(value = false)
     +b.SECTION.slider
         .container
             .row
+                +e.slider-controller
+                    +e.slider-controller-wrp
+                        +e.slider-controller-btn-1
+                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-right.png")
+                        +e.slider-controller-btn-2
+                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right.png")
+                        +e.slider-controller-btn-3
+                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right-bottom.png")
+                        +e.slider-controller-btn-4
+                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left-bottom.png")
+                        +e.slider-controller-btn-5
+                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left.png")
+                        +e.slider-controller-btn-6
+                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-left.png")
+                        +e.IMG.slider-controller-circle(src="img/content/slider-circle.png")
+                        +e.slider-cotroller-inner
+                +e.slides.glide
+                    +e.slides-wrp(data-glide-el="track" class="glide__track")
+                        +e.UL.items.glide__slides
+                            each val, index in value.slides
+                                +e.LI.item.glide__slide
+                                    +e.P.title #{val[0]}
+                                    +e.P.subtitle #{val[1]}

@@ -14,6 +14,10 @@
     }
 
     &__item-wrp {
+        @media (min-width: $break_lg) {
+            width: 496px;
+            min-width: 496px;
+        }
         @media (min-width: $break_md) {
             width: 300px;
             min-width: 300px;
@@ -22,13 +26,16 @@
     }
 
     &__content {
+        @media (min-width: $break_lg) {
+            max-width: 496px;
+        }
         @include col();
         @include size(12);
         max-width: 320px;
     }
 
     &__svg {
-        @media (min-width: $break_md) {
+        @media (min-width: $break_lg) {
             width: 36px;
             height: 36px;
             margin-right: 26px;
@@ -40,6 +47,9 @@
     }
 
     &__sign {
+        @media (min-width: $break_lg) {
+            font-size: 24px;
+        }
         font-size: 16px;
         color: $white;
         line-height: 36px;
@@ -53,6 +63,9 @@
     }
 
     &__title {
+        @media (min-width: $break_lg) {
+            font-size: 48px;
+        }
         padding: 0;
         margin: 0;
         font-size: 28px;
@@ -61,6 +74,9 @@
     }
 
     &__text {
+        @media (min-width: $break_lg) {
+            font-size: 24px;
+        }
         color: $white;
     }
 
@@ -83,6 +99,15 @@
         }
     }
     &__fixed {
+        @media (min-width: $break_xl) {
+            max-width: 500px;
+            margin-left: calc(100% - 500px);
+        }
+        @media (min-width: $break_lg) {
+            width: 100%;
+            max-width: 754px;
+            margin-left: 526px;
+        }
         position: absolute;
         top: 0;
         width: calc(100% - 350px);
@@ -91,6 +116,9 @@
         margin-top: 130px;
     }
     &__fixed-items {
+        @media (min-width: $break_xl) {
+            width: 500px;
+        }
         width: 388px;
         max-width: 100%;
         height: 100%;
