@@ -9,7 +9,7 @@ mixin count(value = false)
             .row
                 +e.UL.list
                     each val in value.countList
-                        +e.LI.item(data-counter-num=val[0])
-                            +e.P.number
+                        +e.LI.item(data-counter-num=val[0] data-counter-speed=val[2])
+                            +e.P.number 0
                             +e.P.text #{val[1]}
 

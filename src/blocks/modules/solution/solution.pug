@@ -1,0 +1,24 @@
+mixin solution(value = false)
+    +b.SECTION.solution
+        .container
+            .row(style="position: relative;")
+                +e.UL.content
+                    each val, i in value.solutionContent
+                        +e.LI.item(data-index=`index_1`)
+                            +e.item-wrp
+                                +e.P.sign
+                                    +icon({
+                                        name: "gear",
+                                        class: "solution__svg"
+                                    })
+                                    |   Inka. How it works
+                                +e.P.title #{val[0]}
+                                +e.P.text #{val[1]}
+                            +e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x`)
+                +e.fixed
+                    +e.fixed-items
+                        each val, i in value.solutionContent
+                            if i > 0
+                                +e.IMG.img-fixed(src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x`)
+                            else
+                                +e.IMG.img-fixed._show(src=`img/content/${val[2]}.webp` srcset=`img/content/${val[3]}.webp 2x`)

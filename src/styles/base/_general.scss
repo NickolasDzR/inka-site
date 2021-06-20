@@ -54,6 +54,10 @@ a {
     align-items: center;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
 h1 {
     @media (min-width: $break_md) {
         font-size: 38px;
@@ -63,6 +67,17 @@ h1 {
     }
     font-size: 26px;
     color: $blue;
+}
+
+h2 {
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 24px;
+    color: $font-light-black;
+    text-align: center;
+    @media (min-width: $break_md) {
+        font-size: 36px;
+    }
 }
 
 .header {
@@ -84,13 +99,6 @@ h1 {
             display: none;
         }
         @extend .nav__logo;
-    }
-}
-
-.main {
-    padding-top: 60px;
-    @media (min-width: $break_xl) {
-        padding-top: 0;
     }
 }
 

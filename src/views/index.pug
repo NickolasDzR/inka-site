@@ -4,36 +4,69 @@ include ../blocks/components/hamburger/hamburger
 include ../blocks/modules/nav/nav
 include ../blocks/modules/title/title
 include ../blocks/modules/count/count
+include ../blocks/modules/steps/steps
+include ../blocks/modules/support/support
+include ../blocks/modules/cryptocurrencies/cryptocurrencies
+include ../blocks/modules/solution/solution
+include ../blocks/modules/slider/slider
 
 block variables
-	-
-		var
-			title = "inka"
-			navigationItems = ["About", "How it works", "Roadmap", "Docs"]
-			mainHeadingText = "Multiple chains wallet"
-			titleList = ["Earn easy in one click", "Keep your money safe"]
-			countList = [["8", "Chains"], ["100", "Cryptocurrencies"], ["15", "DeFi services"]]
+    -
+        var
+            title = "inka"
+            navigationItems = ["About", "How it works", "Roadmap", "Docs"]
+            mainHeadingText = "Multiple chains wallet"
+            titleList = ["Earn easy in one click", "Keep your money safe"]
+            countList = [["8", "Chains", "1.5s"], ["100", "Cryptocurrencies", "2s"], ["15", "DeFi services", "1.5s"]]
+            imagesCount = ["img/content/1.png", "img/content/2.png", "img/content/3.png"]
+            textCount = [
+                    "Download Inka app on App Store or Play Market",
+                    "Start buying and exchanging cryptocurrencies",
+                    "Earn under 30% annually by staking cryptocurrency"
+            ]
+            supportCrypto = ["tether", "dai", "ethereum", "chainlink", "usd-coin", "btc"];
+            cryptocurrenciesList = ["Cryptocurrencies", "Exchange rate", "DeFi services", "Investments decisions"];
+            solutionContent = [["Liquid swap","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","liquid-swap", "liquid-swap@x2"],["DeFi staking","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","defi-staking", "defi-staking@x2"],["DEX","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","dex", "dex@x2"],["Cryptofunds","Liquid Swap is a feature on Liquid that facilitates the simple exchanging of digital assets and fiat currency. Trade without having to navigate complex trading dashboards. You can select the currency you'd like to buy and the currency you'd like to pay with. Enter the amount and complete the transaction.","crypto-founds", "crypto-founds@x2"]]
+
 
 block content
-	include ../../node_modules/bemto.pug/bemto.pug
-	+b.HEADER.header
-		+icon({
-			name: "logo",
-			class: "header__logo",
-		})
-		+hamburger
-		+nav({
-			navigationListItems: navigationItems,
-		})
-	+b.MAIN.main
-		+title({
-			heading: mainHeadingText,
-			titleList: titleList,
-		})
-		+count({
-			countList: countList,
-		})
+    include ../../node_modules/bemto.pug/bemto.pug
+    +b.HEADER.header
+        +icon({
+            name: "logo",
+            class: "header__logo",
+        })
+        +hamburger
+        +nav({
+        navigationListItems: navigationItems,
+        })
+    +b.MAIN.main
+        +title({
+            heading: mainHeadingText,
+            titleList: titleList,
+        })
+        +count({
+        countList: countList,
+        })
+        +steps({
+            heading: "Start earning with Inka in 3 steps:",
+            imagesUrl: imagesCount,
+            text: textCount,
+        })
+        +support({
+            heading: "Supporting main cryptocurrencies",
+            list: supportCrypto,
+        })
+        +cryptocurrencies({
+            heading: "In one click choose the best:",
+            list: cryptocurrenciesList,
+            cryptos: 10
+        })
+        +solution({
+            solutionContent: solutionContent,
+        })
+        +slider
 
 block scripts
-	script(src="js/main.js")
-	script(src="js/vendor.js")
+    script(src="js/main.js")
+    script(src="js/vendor.js")

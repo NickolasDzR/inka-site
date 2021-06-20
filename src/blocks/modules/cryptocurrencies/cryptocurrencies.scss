@@ -1,0 +1,301 @@
+.cryptocurrencies {
+    @media (min-width: $break_md) {
+        padding: 150px 0;
+    }
+    padding: 48px 0;
+    &__heading {
+        @include col();
+        @include size(12);
+        margin-bottom: 30px;
+    }
+    &__list-cryptos {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        margin: 0;
+    }
+    &__list {
+        @extend .title__list;
+        @include col();
+        @include size(12);
+    }
+    &__item {
+        @extend .title__item;
+    }
+    &__controll {
+        @media (min-width: $break_md) {
+            width: 475px;
+            height: 475px;
+            margin: 0 auto;
+        }
+        @include col();
+        width: 273px;
+        height: 273px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    &__text {
+        margin-bottom: 30px;
+    }
+    &__circle {
+        @media (min-width: $break_md) {
+            max-width: 475px;
+            max-height: 475px;
+        }
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 273px;
+        max-height: 273px;
+        animation: {
+            name: cryptoRotate;
+            timing-function: linear;
+            iteration-count: infinite;
+        }
+    }
+    &__circle-wrp {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__circle-inner {
+        @media (min-width: $break_md) {
+            width: 188px;
+            height: 188px;
+        }
+        width: 110px;
+        height: 110px;
+        background: #FFFFFF;
+        box-shadow: -5px -5px 20px #FFFFFF, 5px 5px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1;
+        transition: transform .3s linear;
+
+        &_scale {
+            transform: scale(1.15);
+        }
+    }
+    &__circle-cover {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+
+        animation: {
+            name: cryptoRotate;
+            timing-function: linear;
+            iteration-count: infinite;
+            direction: reverse;
+        }
+    }
+    &__cryptos {
+        @media (min-width: $break_md) {
+            width: 32px;
+        }
+        width: 15px;
+
+        animation: {
+            name: cryptoRotate;
+            timing-function: linear;
+            iteration-count: infinite;
+            direction: reverse;
+        }
+    }
+    &__logo-small {
+        @media (min-width: $break_md) {
+            width: 80px;
+            height: 95px;
+        }
+        display: block;
+        width: 50px;
+        height: 61px;
+    }
+    &__item-img {
+        @media (min-width: $break_md) {
+            width: 80px;
+            height: 80px;
+        }
+        width: 45px;
+        height: 45px;
+        background: #FFFFFF;
+        box-shadow: -5px -5px 20px #FFFFFF, 5px 5px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        transition: transform .5s ease;
+    }
+    &__item-img_1 {
+        @media (min-width: $break_md) {
+            left: 195px;
+            top: 10px;
+            &_transform {
+                transform: translateY(200px);
+            }
+        }
+        left: 115px;
+        top: 5px;
+        &_transform {
+            transform: translateY(110px);
+        }
+    }
+    &__item-img_2 {
+        @media (min-width: $break_md) {
+            top: 35px;
+            left: 319px;
+            &_transform {
+                transform: translate(-125px, 170px);
+            }
+        }
+        top: 35px;
+        left: 179px;
+        &_transform {
+            transform: translate(-65px, 80px);
+        }
+    }
+    &__item-img_3 {
+        @media (min-width: $break_md) {
+            top: 137px;
+            left: 379px;
+            &_transform {
+                transform: translate(-178px, 67px);
+            }
+        }
+        top: 87px;
+        left: 212px;
+        &_transform {
+            transform: translate(-98px, 27px);
+        }
+    }
+    &__item-img_4 {
+        @media (min-width: $break_md) {
+            top: 257px;
+            left: 392px;
+            &_transform {
+                transform: translate(-195px, -52px);
+            }
+        }
+        top: 147px;
+        left: 212px;
+        &_transform {
+            transform: translate(-99px, -32px);
+        }
+    }
+    &__item-img_5 {
+        @media (min-width: $break_md) {
+            left: 320px;
+            bottom: 41px;
+            &_transform {
+                transform: translate(-122px, -148px);
+            }
+        }
+        left: 179px;
+        bottom: 35px;
+        &_transform {
+            transform: translate(-65px, -80px);
+        }
+    }
+    &__item-img_6 {
+        @media (min-width: $break_md) {
+            left: 198px;
+            bottom: 11px;
+            &_transform {
+                transform: translateY(-180px);
+            }
+        }
+        left: 115px;
+        bottom: 5px;
+        &_transform {
+            transform: translateY(-110px);
+        }
+    }
+    &__item-img_7 {
+        @media (min-width: $break_md) {
+            right: 329px;
+            bottom: 55px;
+            &_transform {
+                transform: translate(135px, -130px);
+            }
+        }
+        right: 179px;
+        bottom: 35px;
+        &_transform {
+            transform: translate(65px, -80px);
+        }
+    }
+    &__item-img_8 {
+        @media (min-width: $break_md) {
+            top: 237px;
+            right: 388px;
+            &_transform {
+                transform: translate(190px, -28px);
+            }
+        }
+        top: 147px;
+        right: 212px;
+        &_transform {
+            transform: translate(97px, -34px);
+        }
+    }
+    &__item-img_9 {
+        @media (min-width: $break_md) {
+            top: 127px;
+            right: 376px;
+            &_transform {
+                transform: translate(177px, 80px);
+            }
+        }
+        top: 87px;
+        right: 212px;
+        &_transform {
+            transform: translate(100px, 28px);
+        }
+    }
+    &__item-img_10 {
+        @media (min-width: $break_md) {
+            top: 37px;
+            right: 313px;
+            &_transform {
+                transform: translate(115px, 168px);
+            }
+        }
+        top: 35px;
+        right: 179px;
+        &_transform {
+            transform: translate(65px, 78px);
+        }
+    }
+}
+
+@keyframes cryptoRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cryptoScale {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+

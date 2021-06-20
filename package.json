@@ -34,6 +34,7 @@
         "babel-loader": "^8.0.5",
         "bem-tools-core": "bem-tools/bem-tools-core",
         "bem-tools-create": "bem-tools/bem-tools-create",
+        "bemto.pug": "^2.1.0",
         "browser-sync": "^2.23.6",
         "del": "^5.1.0",
         "eslint": "~7.7.0",
@@ -69,10 +70,10 @@
         "stylelint-selector-bem-pattern": "^2.1.0",
         "webpack": "~4.44.1",
         "webpack-stream": "^5.2.1",
-        "yargs": "~15.4.1",
-        "bemto.pug": "^2.1.0"
+        "yargs": "~15.4.1"
     },
     "dependencies": {
+        "lozad": "^1.16.0",
         "smart-grid": "^2.1.2"
     },
     "husky": {

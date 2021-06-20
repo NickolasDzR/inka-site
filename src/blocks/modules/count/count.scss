@@ -1,17 +1,105 @@
 .count {
+    @media (min-width: $break_md) {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+    @media (min-width: $break_lg) {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    @media (min-width: $break_xl) {
+        padding-top: 145px;
+        padding-bottom: 145px;
+    }
     padding-top: 70px;
     padding-bottom: 70px;
     position: relative;
     background: linear-gradient(259.1deg, #1C1C9D 0%, #7171FF 35.3%, #C4CDFF 101.76%);
+    overflow: hidden;
     &__background-img {
+        @media (min-width: $break_lg) {
+            display: block;
+            max-width: 400px;
+        }
+        @media (min-width: $break_xl) {
+            max-width: 740px;
+        }
         display: none;
         position: absolute;
         right: 0;
         top: 0;
-        max-width: 740px;
     }
     &__list {
+        @media (min-width: $break_md) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (min-width: $break_lg) {
+            justify-content: left;
+            padding-left: 50px;
+        }
+        @media (min-width: $break_xl) {
+            justify-content: left;
+            padding-left: 0px;
+        }
         @include col();
         @include size(12);
+    }
+    &__item {
+        @media (min-width: $break_md) {
+            margin-bottom: 0;
+        }
+        //margin-bottom: 48px;
+    }
+    &__item + &__item {
+        @media (min-width: $break_sm) {
+            margin-top: 62px;
+        }
+        @media (min-width: $break_md) {
+            margin-left: 70px;
+            margin-top: 0;
+        }
+
+        @media (min-width: $break_lg) {
+            margin-left: 58px;
+        }
+        margin-top: 48px;
+    }
+    &__number {
+        @media (min-width: $break_md) {
+            font-size: 70px;
+            line-height: 62px;
+        }
+        @media (min-width: $break_lg) {
+            font-size: 76px;
+        }
+        @media (min-width: $break_xl) {
+            font-size: 100px;
+        }
+        font-family: "Roboto";
+        font-weight: bold;
+        font-size: 60px;
+        line-height: 52px;
+        color: $white;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    &__text {
+        @media (min-width: $break_lg) {
+            font-size: 26px;
+        }
+        @media (min-width: $break_xl) {
+            font-size: 36px;
+        }
+        font-family: "Roboto";
+        font-weight: 500;
+        font-size: 24px;
+        color: $white;
+        margin: 0;
+        padding: 0;
+        text-align: center;
     }
 }

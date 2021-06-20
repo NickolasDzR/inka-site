@@ -1,0 +1,23 @@
+mixin cryptocurrencies(value = false)
+    +b.SECTION.cryptocurrencies
+        .container
+            .row.align-items-center
+                +e.text
+                    +e.H2.heading #{value.heading}
+                    +e.UL.list
+                        each val in value.list
+                            +e.LI.item #{val}
+                +e.controll(data-animation-time="10", data-animation-hide-crypto="2")
+                    +e.circle
+                        +e.UL.list-cryptos
+                            - for (let i = 1; i <= value.cryptos; i++)
+                                - var imageUrl = "img/content/crypto-" + i + ".png"
+                                - var className = "_" + i
+                                +e.item-img(class=className)
+                                    +e.IMG.cryptos(src=imageUrl)
+                        +e.circle-wrp
+                            +e.circle-inner
+                                +e.circle-cover
+                                    +e.IMG.__logo-small(srcset="img/content/logo-small@x2.png 2x"
+                                                        src="img/content/logo-small.png" alt="Логотип inka"
+                                                        role="presentation")

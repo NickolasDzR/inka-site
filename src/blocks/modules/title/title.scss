@@ -1,4 +1,6 @@
 .title {
+    padding-top: 60px;
+    padding-bottom: 80px;
     &__content {
         @media (min-width: $break_lg) {
             width: 687px;
