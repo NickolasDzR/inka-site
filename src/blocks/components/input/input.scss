@@ -1,0 +1,17 @@
+.input {
+    display: flex;
+    &__input {
+        padding: 10px 15px;
+        display: block;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        flex-grow: 1;
+        margin-right: 16px;
+    }
+    &__input::placeholder {
+        font-size: 16px;
+        color: $dark-gray;
+        background-color: $white;
+    }
+}

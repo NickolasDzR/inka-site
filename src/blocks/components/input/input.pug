@@ -1,0 +1,7 @@
+mixin input(value = false)
+    include ../btn/btn
+    +b.input
+        +e.INPUT.input(type=value.type, placeholder=value.placeholder)
+        +btn({
+            text: value.btnText,
+        })

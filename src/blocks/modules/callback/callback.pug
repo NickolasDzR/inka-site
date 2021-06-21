@@ -1,0 +1,12 @@
+mixin callback(value = false)
+    include ../../components/input/input
+    -
+        var
+                modificator = value.mod ? `_${value.mod}` : ""
+    +b.callback(class=modificator)
+        +e.FORM.form
+            +input({
+                placeholder: value.placeholder,
+                type: value.email,
+                btnText: value.btnText,
+            })
