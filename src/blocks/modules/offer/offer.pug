@@ -1,0 +1,38 @@
+mixin offer(value = false)
+    +b.SECTION.offer
+        +e.wrp
+            .container
+                .row
+                    +e.UL.content
+                        +e.LI.item._flex._md_mb-45
+                            +e.logo
+                                +icon({
+                                    name: "logo-label",
+                                    class: "offer__svg"
+                                })
+                            +e.text
+                                +e.P.title Try Inka
+                                +e.P.subtitle Ready to explore Inka?
+                        +e.LI.item
+                            +e.A.app-stire-link(href="https://apps.apple.com/ru/app/яндекс-карты/id313877526" target="_blank")
+                                +picture({
+                                    name: "app-store",
+                                    format: "webp"
+                                })
+                        +e.LI.item
+                            +e.A.app-store-link(href="https://play.google.com/store/apps/details?id=ru.yandex.yandexmaps" target="_blank")
+                                +picture({
+                                    name: "google-play",
+                                    format: "webp"
+                                })
+                        +e.LI.item
+                            +e.A.app-store-link(href="#")
+                                +picture({
+                                    name: "qr-code",
+                                    format: "webp"
+                                })
+        +picture({
+            name: "iphone",
+            format: "webp",
+            class: "phone",
+        })

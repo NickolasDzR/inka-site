@@ -9,6 +9,7 @@ include ../blocks/modules/support/support
 include ../blocks/modules/cryptocurrencies/cryptocurrencies
 include ../blocks/modules/solution/solution
 include ../blocks/modules/slider/slider
+include ../blocks/modules/offer/offer
 
 block variables
     -
@@ -68,6 +69,7 @@ block content
         +slider({
             slides: sliderSlides,
         })
+        +offer({})
 
 block scripts
     script(src="js/main.js")
