@@ -75,91 +75,113 @@
             position: absolute;
             transition: transform .15s ease;
         }
+        & > div > picture {
+            display: block;
+            width: 100%;
+        }
         & > div:nth-child(1) {
             @media (min-width: $break_xl) {
-                right: 30px;
-                top: 4px;
+                right: 28px;
+                top: 0px;
             }
-            right: 33px;
-            top: 17px;
+            right: 40px;
+            top: 25px;
             &.slider__slider-controller-btn_active {
-                transform: translate3d(11px, -8px, 0px);
+                @media (min-width: $break_xl) {
+                    transform: translate3d(10px, -16px, 0px);
+                }
+                transform: translate3d(5px, -9px, 0px);
             }
         }
         & > div:nth-child(2) {
             @media (min-width: $break_xl) {
-                top: 110px;
-                right: 2px;
+                top: 107px;
+                right: 0px;
             }
-            top: 80px;
-            right: 16px;
+            top: 85px;
+            right: 24px;
             &.slider__slider-controller-btn_active {
+                @media (min-width: $break_xl) {
+                    transform: translate3d(20px, 0px, 0px);
+                }
                 transform: translate3d(10px, 0px, 0px);
             }
         }
         & > div:nth-child(3) {
             @media (min-width: $break_xl) {
-                bottom: 0px;
-                right: 34px;
+                bottom: -4px;
+                right: 28px;
             }
-            bottom: 19px;
-            right: 32px;
+            bottom: 21px;
+            right: 41px;
             &.slider__slider-controller-btn_active {
-                transform: translate3d(11px, 8px, 0px);
+                @media (min-width: $break_xl) {
+                    transform: translate3d(10px, 17px, 0px);
+                }
+                transform: translate3d(6px, 8px, 0px);
             }
         }
         & > div:nth-child(4) {
             @media (min-width: $break_xl) {
-                bottom: 0px;
-                right: 215px;
+                bottom: -4px;
+                right: 212px;
             }
-            bottom: 16px;
-            right: 131px;
+            bottom: 21px;
+            right: 145px;
             &.slider__slider-controller-btn_active {
-                transform: translate3d(-11px, 8px, 0px);
+                @media (min-width: $break_xl) {
+                    transform: translate3d(-10px, 17px, 0px);
+                }
+                transform: translate3d(-5px, 9px, 0px);
             }
         }
         & > div:nth-child(5) {
             @media (min-width: $break_xl) {
-                left: 2px;
-                top: 111px;
+                left: 1px;
+                top: 108px;
             }
-            top: 83px;
-            left: 17px;
+            top: 85px;
+            left: 25px;
             &.slider__slider-controller-btn_active {
+                @media (min-width: $break_xl) {
+                    transform: translate3d(-21px, 0px, 0px);
+                }
                 transform: translate3d(-10px, 0px, 0px);
             }
         }
         & > div:nth-child(6) {
             @media (min-width: $break_xl) {
-                left: 32px;
-                top: 4px;
+                left: 30px;
+                top: 1px;
             }
-            left: 33px;
-            top: 21px;
+            left: 42px;
+            top: 25px;
             &.slider__slider-controller-btn_active {
-                transform: translate3d(-11px, -8px, 0px);
+                @media (min-width: $break_xl) {
+                    transform: translate3d(-11px, -17px, 0px);
+                }
+                transform: translate3d(-5px, -9px, 0px);
             }
         }
-        & > div > img {
+        & > div > picture img {
             @media (min-width: $break_xl) {
-                width: 180px;
+                width: 184px;
             }
-            width: 108px;
-        }
-
-        & > div:nth-child(2) > img {
-            @media (min-width: $break_xl) {
-                width: 100px;
-            }
-            width: 60px;
+            width: 104px;
         }
 
-        & > div:nth-child(5) > img {
+        & > div:nth-child(2) > picture img {
             @media (min-width: $break_xl) {
-                width: 100px;
+                width: 102px;
             }
-            width: 60px;
+            width: 58px;
+        }
+
+        & > div:nth-child(5) > picture img {
+            @media (min-width: $break_xl) {
+                width: 102px;
+            }
+            width: 58px;
         }
     }
     &__slider-controller-wrp {
@@ -167,8 +189,8 @@
     }
     &__slider-controller-circle {
         @media (min-width: $break_xl) {
-            width: 290px;
-            height: 290px;
+            width: 292px;
+            height: 292px;
         }
         z-index: 10;
         position: absolute;
@@ -177,8 +199,8 @@
         right: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 160px;
-        height: 160px;
+        width: 164px;
+        height: 164px;
     }
     &__slide-svg {
         @media (min-width: $break_lg) {
@@ -225,6 +247,7 @@
         right: 0;
         bottom: 0;
         left: 0;
+        pointer-events: none;
     }
     .slider__logo-small {
         @media (min-width: $break_xl) {

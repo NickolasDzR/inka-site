@@ -4,8 +4,8 @@
         padding-bottom: 85px;
     }
     @media (min-width: $break_lg) {
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
     @media (min-width: $break_xl) {
         padding-top: 145px;
@@ -23,6 +23,10 @@
         }
         @media (min-width: $break_xl) {
             max-width: 740px;
+            right: -200px;
+        }
+        @media (min-width: 1590px) {
+            right: 0;
         }
         display: none;
         position: absolute;

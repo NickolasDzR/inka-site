@@ -5,17 +5,35 @@ mixin slider(value = false)
                 +e.slider-controller
                     +e.slider-controller-wrp
                         +e.slider-controller-btn(data-slide="0")
-                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-right.png")
+                            +e.PICTURE
+                                +e.SOURCE(srcset="img/content/slider-btn-top-right@x2.png"
+                                    media="(min-width: 1280px)")
+                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-right.png")
                         +e.slider-controller-btn(data-slide="1")
-                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right.png")
+                            +e.PICTURE
+                                +e.SOURCE(srcset="img/content/slider-btn-right@x2.png"
+                                    media="(min-width: 1280px)")
+                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right.png")
                         +e.slider-controller-btn(data-slide="2")
-                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right-bottom.png")
+                            +e.PICTURE
+                                +e.SOURCE(srcset="img/content/slider-btn-right-bottom@x2.png"
+                                    media="(min-width: 1280px)")
+                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right-bottom.png")
                         +e.slider-controller-btn(data-slide="3")
-                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left-bottom.png")
+                            +e.PICTURE
+                                +e.SOURCE(srcset="img/content/slider-btn-left-bottom@x2.png"
+                                    media="(min-width: 1280px)")
+                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left-bottom.png")
                         +e.slider-controller-btn(data-slide="4")
-                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left.png")
+                            +e.PICTURE
+                                +e.SOURCE(srcset="img/content/slider-btn-left@x2.png"
+                                    media="(min-width: 1280px)")
+                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left.png")
                         +e.slider-controller-btn(data-slide="5")
-                            +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-left.png")
+                            +e.PICTURE
+                                +e.SOURCE(srcset="img/content/slider-btn-top-left@x2.png"
+                                    media="(min-width: 1280px)")
+                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-left.png")
                         +e.IMG.slider-controller-circle(src="img/content/slider-circle.png")
                         +e.slider-cotroller-inner
                             +e.IMG.__logo-small(srcset="img/content/logo-small@x2.png 2x"

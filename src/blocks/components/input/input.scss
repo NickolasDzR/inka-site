@@ -1,13 +1,20 @@
 .input {
     display: flex;
+    max-width: 450px;
+    margin: 0 auto;
     &__input {
+        @media (min-width: $break_md) {
+            margin-right: 16px;
+            border-radius: 6px;
+        }
         padding: 10px 15px;
         display: block;
-        border-radius: 6px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
         border: none;
         outline: none;
-        flex-grow: 1;
-        margin-right: 16px;
+        margin-right: 0px;
+        width: calc(100% - 100px);
     }
     &__input::placeholder {
         font-size: 16px;

@@ -1,14 +1,19 @@
-// import lozad from 'lozad'
-//
-// import Lozad from 'lozad';
+import lozad from 'lozad'
+
+const matchMdMedia = () => {
+    if (window.matchMedia("(min-width: 768px)").matches) {
+        return false;
+        // more than 768
+    } else {
+        return true;
+        // less than 768
+    }
+}
 
 const imagesMobile = document.querySelectorAll('.solution__img');
 const imagesDesktop = document.querySelectorAll('.solution__img-fixed');
-//
-// if (window.matchMedia("(max-width: 768px)").matches) {
-//     const observer = lozad(imagesMobile);
-//     observer.observe();
-// }
+
+const observer = lozad(imagesMobile);
 
 const solutionSection = document.querySelector(".solution"),
     solutionItems = document.querySelectorAll(".solution__item"),
@@ -35,13 +40,12 @@ const deleteImageClass = (i) => {
     });
 }
 
-document.addEventListener("scroll", () => {
+const scrolledImgHandler = () => {
     const scrolledFromTop = window.scrollY;
     const solutionOffsetTop = solutionSection.offsetTop;
     const wh = window.innerHeight;
     const centerWindow = Math.round(scrolledFromTop + (wh / 2))
 
-        console.log((solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow);
     if ((solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow > -121) {
         solutionFixed.style.cssText = "top: 0; bottom: auto;"
     } else if ((solutionOffsetTop + solutionItemsWrpOffsetTop[solutionItemsWrpOffsetTop.length - 1]) - centerWindow < -(solutionItemHeight - 60)) {
@@ -58,4 +62,53 @@ document.addEventListener("scroll", () => {
             }
         });
     }
-})
+}
+
+document.addEventListener("scroll", function () {
+    if (!matchMdMedia()) {
+        scrolledImgHandler();
+
+        imagesMobile.forEach(el => {
+            if (el.classList.contains("lozad")) {
+                el.style.display = "none";
+            }
+        })
+    }
+});
+
+window.addEventListener("resize", function () {
+    if (!matchMdMedia()) {
+        imagesMobile.forEach(el => {
+            if (el.classList.contains("lozad")) {
+                el.style.display = "none";
+            }
+        })
+        imagesDesktop.forEach(el => {
+            el.style.display = "block";
+        });
+    } else {
+        imagesMobile.forEach(el => {
+            if (el.classList.contains("lozad")) {
+                el.style.display = "block";
+            }
+        })
+        observer.observe();
+        imagesDesktop.forEach(el => {
+            el.style.display = "none";
+        });
+    }
+});
+
+if (matchMdMedia()) {
+    imagesDesktop.forEach(el => {
+        el.style.display = "none";
+    });
+    observer.observe();
+} else {
+    imagesMobile.forEach(el => {
+        if (el.classList.contains("lozad")) {
+            el.style.display = "none";
+        }
+    })
+    scrolledImgHandler();
+}

@@ -12,6 +12,7 @@ include ../blocks/modules/slider/slider
 include ../blocks/modules/offer/offer
 include ../blocks/modules/callback/callback
 include ../blocks/modules/social/social
+include ../blocks/modules/copyright/copyright
 
 block variables
     -
@@ -36,14 +37,22 @@ block variables
 block content
     include ../../node_modules/bemto.pug/bemto.pug
     +b.HEADER.header
-        +icon({
-            name: "logo",
-            class: "header__logo",
-        })
-        +hamburger
-        +nav({
-        navigationListItems: navigationItems,
-        })
+        .container
+            .row
+                +icon({
+                    name: "logo-white",
+                    class: "header__logo",
+                })
+                +icon({
+                    name: "logo",
+                    class: "header__logo header__logo_desktop",
+                })
+                +hamburger({
+                    parentClass: "header_hamburger"
+                })
+                +nav({
+                navigationListItems: navigationItems,
+                })
     +b.MAIN.main
         +title({
             heading: mainHeadingText,
@@ -86,6 +95,7 @@ block content
                 +social({
                     iconsName: socialIconsName,
                 })
+                +copyright
 
 block scripts
     script(src="js/main.js")

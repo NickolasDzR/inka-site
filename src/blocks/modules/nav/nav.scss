@@ -6,19 +6,21 @@ $staticNavigationMediaBreak: $break_md;
         position: static;
         width: 100%;
     }
-    position: absolute;
+    z-index: 100;
+    position: fixed;
     top: 0;
-    background-color: lightgray;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 0vh;
+    overflow: hidden;
+    background-color: #000;
+    transition: all 700ms cubic-bezier(0.32, 0.08, 0.24, 1);
+
+    //background-color: lightgray;
     width: calc(100% + 30px);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    visibility: hidden;
     pointer-events: none;
-    transition-property: visibility, pointer-events;
-    transition-delay: 1s;
-    animation-duration: .8s;
-    animation-name: bounceOutLeft;
-    animation-fill-mode: both;
     @media (min-width: $staticNavigationMediaBreak) {
         visibility: visible;
         pointer-events: auto;
@@ -29,12 +31,11 @@ $staticNavigationMediaBreak: $break_md;
     }
     &_active {
         visibility: visible;
-        pointer-events: auto;
-        animation-duration: .8s;
-        animation-name: bounceInLeft;
-        animation-fill-mode: both;
-        transition-property: visibility, pointer-events;
-        transition-delay: 0s;
+        height: 100vh;
+        .nav__item {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
     }
 
     &__img {
@@ -55,7 +56,6 @@ $staticNavigationMediaBreak: $break_md;
     }
 
     &__list {
-        @include col();
         @include size(12);
         @media (min-width: $staticNavigationMediaBreak) {
             display: flex;
@@ -64,6 +64,8 @@ $staticNavigationMediaBreak: $break_md;
             justify-content: flex-end;
             width: auto;
         }
+        padding: 0 32px;
+        margin-top: 80px;
     }
 
     &__item {
@@ -71,16 +73,21 @@ $staticNavigationMediaBreak: $break_md;
             margin-bottom: 0;
         }
         margin-bottom: 3px;
-        &_bounceInLeft {
-            animation-duration: 1s;
-            animation-name: bounceInLeft;
-            animation-fill-mode: both;
+        transform: translate3d(-10px, -50px, 0);
+        opacity: 0;
+        transition: all 400ms ease;
+        &:nth-child(1) {
+            margin-top: 32px;
         }
-        @for $i from 1 through $listItems {
-            $baseDelay: 0.2;
-            &_bounceInLeft_0#{$i * 2}s {
-                animation-delay: #{$baseDelay * $i}s;
-            }
+        //&_bounceInLeft {
+        //    animation-duration: 1s;
+        //    animation-name: bounceInLeft;
+        //    animation-fill-mode: both;
+        //}
+    }
+    @for $i from 1 through $listItems {
+        &__item:nth-child(#{$i}) {
+            transition-delay: #{$i*20}ms;
         }
     }
     &__item + &__item {
@@ -93,11 +100,16 @@ $staticNavigationMediaBreak: $break_md;
         @media (min-width: $break_xl) {
             margin-left: 80px;
         }
+        border-top: 1px solid #616161;
     }
 
     &__link {
         font-family: $font;
         font-size: 18px;
-        color: $font-black;
+        color: #616161;
+        transform: translateZ(-30px);
+        transition: transform 700ms ease;
+        padding: 7px 0;
+        display: inline-block;
     }
 }

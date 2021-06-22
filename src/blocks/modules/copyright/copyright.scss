@@ -1,0 +1,21 @@
+.copyright {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__logo {
+        width: 100px;
+        height: 40px;
+    }
+    &__logo-wrp {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    &__text {
+        width: 100%;
+        color: $white;
+        text-align: center;
+    }
+}

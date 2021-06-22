@@ -1,18 +1,33 @@
 .soc {
     @include col();
     @include size(12);
+    &_footer {
+        margin-bottom: 24px;
+    }
     &__list {
+        @media (min-width: $break_md) {
+            max-width: 365px;
+        }
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        max-width: 223px;
+        margin: 0 auto;
     }
     &__item {
+        @media (min-width: $break_md) {
+            width: 56px;
+            height: 56px;
+        }
         width: 36px;
         height: 36px;
         background-color: $blue;
         border-radius: 50%;
     }
     &__link {
+        @media (min-width: $break_md) {
+            padding: 15px;
+        }
         display: inline-block;
         padding: 9px;
         width: 100%;

@@ -1,20 +1,17 @@
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
 const hamburger = document.querySelector(".hamburger"),
     nav = document.querySelector(".nav"),
-    navAnimationItems = nav.dataset.itemsAnimation,
-    navItems = document.querySelectorAll(".nav__item");
+    html = document.querySelector("html");
 
 hamburger.addEventListener("click", (e) => {
     e.preventDefault();
     hamburger.classList.toggle("is-active");
     nav.classList.toggle("nav_active");
 
-    if (navAnimationItems === "true") {
-        navItems.forEach((item, index) => {
-            const baseDelay = 0.2;
-            setTimeout(() => {
-                item.classList.toggle("nav__item_bounceInLeft");
-                item.classList.toggle(`nav__item_bounceInLeft_0${(index + 1) * 2}s`);
-            }, baseDelay * (index + 1));
-        });
+    if (nav.classList.contains("nav_active")) {
+        disableBodyScroll(html);
+    } else {
+        enableBodyScroll(html);
     }
 });
