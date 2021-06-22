@@ -50,6 +50,19 @@
         z-index: 2;
         margin-bottom: 15px;
     }
+    &__number-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        font-weight: bold;
+        font-size: 36px;
+
+        background: linear-gradient(192.44deg, #C4CDFF 0%, #7171FF 70.83%, #1C1C9D 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
     &__text {
         @media (min-width: $break_md) {
             width: auto;

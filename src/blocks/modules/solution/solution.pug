@@ -1,5 +1,5 @@
 mixin solution(value = false)
-    +b.SECTION.solution
+    +b.SECTION.solution#solution
         .container
             .row(style="position: relative;")
                 +e.UL.content
@@ -19,6 +19,6 @@ mixin solution(value = false)
                     +e.fixed-items
                         each val, i in value.solutionContent
                             if i > 0
-                                +e.IMG.img-fixed(src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x`)
+                                +e.IMG.img-fixed.lozad(data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[2]}.webp 2x`)
                             else
-                                +e.IMG.img-fixed._show(src=`img/content/${val[2]}.webp` srcset=`img/content/${val[3]}.webp 2x`)
+                                +e.IMG.img-fixed._show.lozad(data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x`)

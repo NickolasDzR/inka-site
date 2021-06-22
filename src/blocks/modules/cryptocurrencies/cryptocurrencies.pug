@@ -11,13 +11,13 @@ mixin cryptocurrencies(value = false)
                     +e.circle
                         +e.UL.list-cryptos
                             - for (let i = 1; i <= value.cryptos; i++)
-                                - var imageUrl = "img/content/crypto-" + i + ".png"
+                                - var imageUrl = "img/content/crypto-" + i + ".webp"
+                                - var imageUrlx2 = "img/content/crypto-" + i + "@x2.webp x2"
                                 - var className = "_" + i
                                 +e.item-img(class=className)
-                                    +e.IMG.cryptos(src=imageUrl)
+                                    //+e.IMG.cryptos(src=imageUrl)
+                                    +e.IMG.cryptos(class="lozad" data-src=imageUrl data-srcset=imageUrlx2)
                         +e.circle-wrp
                             +e.circle-inner
                                 +e.circle-cover
-                                    +e.IMG.__logo-small(srcset="img/content/logo-small@x2.png 2x"
-                                                        src="img/content/logo-small.png" alt="Логотип inka"
-                                                        role="presentation")
+                                    +e.IMG.logo-small(class="lozad" data-src=`img/content/logo-small.webp` data-srcset=`img/content/logo-small@x2.webp 2x` media="(min-width: 768px)")

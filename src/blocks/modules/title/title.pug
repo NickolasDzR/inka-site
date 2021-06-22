@@ -4,6 +4,7 @@ mixin title(value = false)
             .row.title__row
                 +e.content
                     +e.H1.heading #{value.heading}
+                    +e.IMG.img-title(class="lozad" data-src=`img/content/title-mob.webp` data-srcset=`img/content/title-mob@x2.webp 2x` media="(min-width: 992px)")
                     +e.UL.list
                         each val in value.titleList
                             +e.LI.item #{val}
@@ -17,25 +18,14 @@ mixin title(value = false)
                     +e.UL.app-store
                         +e.LI.app-store-item
                             +e.A.app-stire-link(href="https://apps.apple.com/ru/app/яндекс-карты/id313877526" target="_blank")
-                                +picture({
-                                    name: "app-store",
-                                    format: "webp"
-                                })
+                                +b.IMG(class="lozad" data-src=`img/content/app-store.webp` data-srcset=`img/content/app-store@x2.webp 2x`)
                         +e.LI.app-store-item
                             +e.A.app-store-link(href="https://play.google.com/store/apps/details?id=ru.yandex.yandexmaps" target="_blank")
-                                +picture({
-                                    name: "google-play",
-                                    format: "webp"
-                                })
+                                +b.IMG(class="lozad" data-src=`img/content/google-play.webp` data-srcset=`img/content/google-play@x2.webp 2x`)
                         +e.LI.app-store-item
                             +e.A.app-store-link(href="#")
-                                +picture({
-                                    name: "qr-code",
-                                    format: "webp"
-                                })
+                                +b.IMG(class="lozad" data-src=`img/content/qr-code.webp` data-srcset=`img/content/qr-code@x2.webp 2x`)
 
                 +e.img
-                    +picture({
-                        name: "title",
-                        format: "webp",
-                    })
+                    +b.IMG(class="lozad" data-src=`img/content/title-desk.webp` data-srcset=`img/content/title-desk@x2.webp 2x` media="(max-width: 992px)")
+

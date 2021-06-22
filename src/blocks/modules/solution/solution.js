@@ -10,7 +10,7 @@ const matchMdMedia = () => {
     }
 }
 
-const imagesMobile = document.querySelectorAll('.solution__img');
+const imagesMobile = document.querySelectorAll('.solution__img.lozad');
 const imagesDesktop = document.querySelectorAll('.solution__img-fixed');
 
 const observer = lozad(imagesMobile);

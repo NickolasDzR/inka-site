@@ -1,10 +1,11 @@
 mixin count(value = false)
     +b.SECTION.count
-        +picture({
-            name: "products-number",
-            format: "webp",
-            class: "background-img"
-        })
+        //+picture({
+        //    name: "products-number",
+        //    format: "webp",
+        //    class: "background-img"
+        //})
+        +e.IMG(class="background-img lozad" data-src=`img/content/products-number.webp` data-srcset=`img/content/products-number@x2.webp 2x` media="(min-width: 768px)")
         .container
             .row
                 +e.UL.list

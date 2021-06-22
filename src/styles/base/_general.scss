@@ -58,6 +58,10 @@ a {
     align-items: center;
 }
 
+.w-100 {
+    width: 100%;
+}
+
 h1 {
     @media (min-width: $break_md) {
         font-size: 38px;
@@ -84,10 +88,12 @@ h2 {
     @media (min-width: $break_md) {
         padding-right: 0;
         padding-left: 0;
+        background-color: transparent;
     }
     @media (min-width: $break_xl) {
+        height: 80px;
         padding-top: 0;
-        padding-bottom: 159px;
+        padding-bottom: 0;
     }
     position: relative;
     display: flex;
@@ -107,9 +113,19 @@ h2 {
         @media (min-width: $break_md) {
             display: none;
         }
-        @extend .nav__logo;
+        max-width: 90px;
+        height: 32px;
     }
     &__logo_desktop {
+        @media (min-width: $break_md) {
+            display: block;
+            position: inherit;
+            left: auto;
+            top: auto;
+            width: 90px;
+            margin-left:15px;
+            margin-right: 15px;
+        }
         display: none;
     }
 }

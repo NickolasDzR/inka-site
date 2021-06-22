@@ -5,40 +5,69 @@ mixin slider(value = false)
                 +e.slider-controller
                     +e.slider-controller-wrp
                         +e.slider-controller-btn(data-slide="0")
-                            +e.PICTURE
-                                +e.SOURCE(srcset="img/content/slider-btn-top-right@x2.png"
-                                    media="(min-width: 1280px)")
-                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-right.png")
+                            +icon({
+                                name: "slider-btn-top-right",
+                                viewbox: "0 0 185 150",
+                                class: "slider__slider-controller-img-0",
+                            })
+                            +icon({
+                                name: "shield",
+                                class: "slider__slide-icon slider__slide-icon_one",
+                            })
                         +e.slider-controller-btn(data-slide="1")
-                            +e.PICTURE
-                                +e.SOURCE(srcset="img/content/slider-btn-right@x2.png"
-                                    media="(min-width: 1280px)")
-                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right.png")
+                            +icon({
+                                name: "slider-btn-right",
+                                viewbox: "0 0 103 214",
+                                class: "slider__slider-controller-img-1",
+                            })
+                            +icon({
+                                name: "star",
+                                class: "slider__slide-icon slider__slide-icon_two",
+                            })
                         +e.slider-controller-btn(data-slide="2")
-                            +e.PICTURE
-                                +e.SOURCE(srcset="img/content/slider-btn-right-bottom@x2.png"
-                                    media="(min-width: 1280px)")
-                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-right-bottom.png")
+                            +icon({
+                                name: "slider-btn-right-bottom",
+                                viewbox: "0 0 185 150",
+                                class: "slider__slider-controller-img-2",
+                            })
+                            +icon({
+                                name: "hat",
+                                class: "slider__slide-icon slider__slide-icon_three",
+                            })
                         +e.slider-controller-btn(data-slide="3")
-                            +e.PICTURE
-                                +e.SOURCE(srcset="img/content/slider-btn-left-bottom@x2.png"
-                                    media="(min-width: 1280px)")
-                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left-bottom.png")
+                            +icon({
+                                name: "slider-btn-left-bottom",
+                                viewbox: "0 0 185 150",
+                                class: "slider__slider-controller-img-3",
+                            })
+                            +icon({
+                                name: "hand",
+                                class: "slider__slide-icon slider__slide-icon_four",
+                            })
                         +e.slider-controller-btn(data-slide="4")
-                            +e.PICTURE
-                                +e.SOURCE(srcset="img/content/slider-btn-left@x2.png"
-                                    media="(min-width: 1280px)")
-                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-left.png")
+                            +icon({
+                                name: "slider-btn-left",
+                                viewbox: "0 0 103 214",
+                                class: "slider__slider-controller-img-4",
+                            })
+                            +icon({
+                                name: "flasher",
+                                class: "slider__slide-icon slider__slide-icon_five",
+                            })
                         +e.slider-controller-btn(data-slide="5")
-                            +e.PICTURE
-                                +e.SOURCE(srcset="img/content/slider-btn-top-left@x2.png"
-                                    media="(min-width: 1280px)")
-                                +e.IMG.slider-controller-img-1(src="img/content/slider-btn-top-left.png")
-                        +e.IMG.slider-controller-circle(src="img/content/slider-circle.png")
+                            +icon({
+                                name: "slider-btn-top-left",
+                                viewbox: "0 0 185 150",
+                                class: "slider__slider-controller-img-5",
+                            })
+                            +icon({
+                                name: "message",
+                                class: "slider__slide-icon slider__slide-icon_six",
+                            })
+
+                        +e.IMG.slider-controller-circle.lozad(class="lozad" data-src=`img/content/slider-circle-desk.webp` data-srcset=`img/content/slider-circle-desk@x2.webp 2x`)
                         +e.slider-cotroller-inner
-                            +e.IMG.__logo-small(srcset="img/content/logo-small@x2.png 2x"
-                                src="img/content/logo-small.png" alt="Логотип inka"
-                                role="presentation")
+                            +e.IMG.logo-small.lozad(class="lozad" alt="Логотип inka" data-src=`img/content/logo-small.webp` data-srcset=`img/content/logo-small@x2.webp 2x`)
                 +e.slides.glide
                     +e.slides-wrp(data-glide-el="track" data-autoplay-speed="4" class="glide__track")
                         +e.UL.items.glide__slides

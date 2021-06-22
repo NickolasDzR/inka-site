@@ -4,7 +4,17 @@ $staticNavigationMediaBreak: $break_md;
 .nav {
     @media (min-width: $break_md) {
         position: static;
-        width: 100%;
+        width: auto;
+        flex-grow: 1;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        height: auto;
+        overflow: visible;
+        opacity: 1;
+        margin-left: 15px;
+        margin-right: 15px;
     }
     z-index: 100;
     position: fixed;
@@ -18,7 +28,6 @@ $staticNavigationMediaBreak: $break_md;
     background-color: #000;
     transition: all 700ms cubic-bezier(0.32, 0.08, 0.24, 1);
 
-    //background-color: lightgray;
     width: calc(100% + 30px);
     pointer-events: none;
     @media (min-width: $staticNavigationMediaBreak) {
@@ -32,6 +41,7 @@ $staticNavigationMediaBreak: $break_md;
     &_active {
         visibility: visible;
         height: 100vh;
+        pointer-events: auto;
         .nav__item {
             transform: translate3d(0, 0, 0);
             opacity: 1;
@@ -57,6 +67,10 @@ $staticNavigationMediaBreak: $break_md;
 
     &__list {
         @include size(12);
+        @media (min-width: $break_md) {
+            padding: 0;
+            margin: 0;
+        }
         @media (min-width: $staticNavigationMediaBreak) {
             display: flex;
             flex-grow: 1;
@@ -71,19 +85,20 @@ $staticNavigationMediaBreak: $break_md;
     &__item {
         @media (min-width: $break_md) {
             margin-bottom: 0;
+            transform: translate3d(0,0,0);
+            opacity: 1;
+            margin-top: 0;
         }
         margin-bottom: 3px;
         transform: translate3d(-10px, -50px, 0);
         opacity: 0;
         transition: all 400ms ease;
         &:nth-child(1) {
+            @media (min-width: $break_md) {
+                margin-top: 0;
+            }
             margin-top: 32px;
         }
-        //&_bounceInLeft {
-        //    animation-duration: 1s;
-        //    animation-name: bounceInLeft;
-        //    animation-fill-mode: both;
-        //}
     }
     @for $i from 1 through $listItems {
         &__item:nth-child(#{$i}) {
@@ -91,6 +106,9 @@ $staticNavigationMediaBreak: $break_md;
         }
     }
     &__item + &__item {
+        @media (min-width: $break_md) {
+            border: none;
+        }
         @media (min-width: $staticNavigationMediaBreak) {
             margin-left: 40px;
         }
@@ -104,6 +122,10 @@ $staticNavigationMediaBreak: $break_md;
     }
 
     &__link {
+        @media (min-width: $break_md) {
+            transform: translateZ(0px);
+        }
+        width: 100%;
         font-family: $font;
         font-size: 18px;
         color: #616161;

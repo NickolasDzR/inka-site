@@ -7,6 +7,16 @@
         }
         @include col();
         @include size(12);
+        display: flex;
+        flex-direction: column;
+    }
+    &__img-title {
+        @media (min-width: $break_md) {
+            display: none;
+        }
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
     }
 
     &__img {

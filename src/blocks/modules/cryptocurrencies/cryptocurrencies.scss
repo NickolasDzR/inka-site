@@ -103,8 +103,10 @@
     &__cryptos {
         @media (min-width: $break_md) {
             width: 32px;
+            height: 32px;
         }
         width: 15px;
+        height: 15px;
 
         animation: {
             name: cryptoRotate;
@@ -144,13 +146,13 @@
             left: 195px;
             top: 10px;
             &_transform {
-                transform: translateY(200px);
+                transform: translate3d(0, 200px, 0);
             }
         }
         left: 115px;
         top: 5px;
         &_transform {
-            transform: translateY(110px);
+            transform: translate3d(0, 110px, 0);
         }
     }
     &__item-img_2 {
@@ -158,13 +160,14 @@
             top: 35px;
             left: 319px;
             &_transform {
-                transform: translate(-125px, 170px);
+                transform: translate3d(-125px, 170px, 0);
+
             }
         }
         top: 35px;
         left: 179px;
         &_transform {
-            transform: translate(-65px, 80px);
+            transform: translate3d(-65px, 80px, 0);
         }
     }
     &__item-img_3 {
@@ -172,13 +175,13 @@
             top: 137px;
             left: 379px;
             &_transform {
-                transform: translate(-178px, 67px);
+                transform: translate3d(-178px, 67px, 0);
             }
         }
         top: 87px;
         left: 212px;
         &_transform {
-            transform: translate(-98px, 27px);
+            transform: translate3d(-98px, 27px, 0);
         }
     }
     &__item-img_4 {
@@ -186,13 +189,13 @@
             top: 257px;
             left: 392px;
             &_transform {
-                transform: translate(-195px, -52px);
+                transform: translate3d(-195px, -52px, 0);
             }
         }
         top: 147px;
         left: 212px;
         &_transform {
-            transform: translate(-99px, -32px);
+            transform: translate3d(-99px, -32px, 0);
         }
     }
     &__item-img_5 {
@@ -200,13 +203,13 @@
             left: 320px;
             bottom: 41px;
             &_transform {
-                transform: translate(-122px, -148px);
+                transform: translate3d(-122px, -148px, 0);
             }
         }
         left: 179px;
         bottom: 35px;
         &_transform {
-            transform: translate(-65px, -80px);
+            transform: translate3d(-65px, -80px, 0);
         }
     }
     &__item-img_6 {
@@ -214,13 +217,13 @@
             left: 198px;
             bottom: 11px;
             &_transform {
-                transform: translateY(-180px);
+                transform: translate3d(0, -180px, 0);
             }
         }
         left: 115px;
         bottom: 5px;
         &_transform {
-            transform: translateY(-110px);
+            transform: translate3d(0, -110px, 0);
         }
     }
     &__item-img_7 {
@@ -228,13 +231,13 @@
             right: 329px;
             bottom: 55px;
             &_transform {
-                transform: translate(135px, -130px);
+                transform: translate3d(135px, -130px, 0);
             }
         }
         right: 179px;
         bottom: 35px;
         &_transform {
-            transform: translate(65px, -80px);
+            transform: translate3d(65px, -80px, 0);
         }
     }
     &__item-img_8 {
@@ -242,13 +245,13 @@
             top: 237px;
             right: 388px;
             &_transform {
-                transform: translate(190px, -28px);
+                transform: translate3d(190px, -28px, 0);
             }
         }
         top: 147px;
         right: 212px;
         &_transform {
-            transform: translate(97px, -34px);
+            transform: translate3d(97px, -34px, 0);
         }
     }
     &__item-img_9 {
@@ -256,13 +259,13 @@
             top: 127px;
             right: 376px;
             &_transform {
-                transform: translate(177px, 80px);
+                transform: translate3d(177px, 80px, 0);
             }
         }
         top: 87px;
         right: 212px;
         &_transform {
-            transform: translate(100px, 28px);
+            transform: translate3d(100px, 28px, 0);
         }
     }
     &__item-img_10 {
@@ -270,13 +273,13 @@
             top: 37px;
             right: 313px;
             &_transform {
-                transform: translate(115px, 168px);
+                transform: translate3d(115px, 168px, 0);
             }
         }
         top: 35px;
         right: 179px;
         &_transform {
-            transform: translate(65px, 78px);
+            transform: translate3d(65px, 78px, 0);
         }
     }
 }

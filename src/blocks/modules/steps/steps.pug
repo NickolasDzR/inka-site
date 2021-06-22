@@ -1,5 +1,5 @@
 mixin steps(value = false)
-    +b.SECTION.steps
+    +b.SECTION.steps#steps
         .container
             .row
                 +e.H2.heading #{value.heading}
@@ -8,19 +8,11 @@ mixin steps(value = false)
                         each img, i in value.imagesUrl
                             +e.LI.item
                                 +e.number
-                                    +e.IMG.img(src=img alt="number " +i,  role="presentation")
+                                    +e.number-text #{i}
                                 +e.SPAN.text #{value.text[i]}
                     +e.curve-wrp
                         each val, i in value.imagesUrl
                             if i === 1
-                                +picture({
-                                    name: "curve-top",
-                                    format: "webp",
-                                    class: "__curve_top"
-                                })
+                                +e.IMG.curve_top(class="lozad" data-src=`img/content/curve-top.webp` data-srcset=`img/content/curve-top@x2.webp 2x` media="(min-width: 768px)")
                             if i === 2
-                                +picture({
-                                    name: "curve-bottom",
-                                    format: "webp",
-                                    class: "__curve_bottom"
-                                })
+                                +e.IMG.curve_bottom(class="lozad" data-src=`img/content/curve-bottom.webp` data-srcset=`img/content/curve-bottom@x2.webp 2x` media="(min-width: 768px)")

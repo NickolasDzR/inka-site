@@ -1,5 +1,5 @@
 mixin offer(value = false)
-    +b.SECTION.offer
+    +b.SECTION.offer#offer
         +e.wrp
             .container
                 .row
@@ -15,24 +15,11 @@ mixin offer(value = false)
                                 +e.P.subtitle Ready to explore Inka?
                         +e.LI.item
                             +e.A.app-stire-link(href="https://apps.apple.com/ru/app/яндекс-карты/id313877526" target="_blank")
-                                +picture({
-                                    name: "app-store",
-                                    format: "webp"
-                                })
+                                +b.IMG(class="lozad" data-src=`img/content/app-store.webp` data-srcset=`img/content/app-store@x2.webp 2x`)
                         +e.LI.item
                             +e.A.app-store-link(href="https://play.google.com/store/apps/details?id=ru.yandex.yandexmaps" target="_blank")
-                                +picture({
-                                    name: "google-play",
-                                    format: "webp"
-                                })
+                                +b.IMG(class="lozad" data-src=`img/content/google-play.webp` data-srcset=`img/content/google-play@x2.webp 2x`)
                         +e.LI.item
                             +e.A.app-store-link(href="#")
-                                +picture({
-                                    name: "qr-code",
-                                    format: "webp"
-                                })
-        +picture({
-            name: "iphone",
-            format: "webp",
-            class: "phone",
-        })
+                                +b.IMG(class="lozad" data-src=`img/content/qr-code.webp` data-srcset=`img/content/qr-code@x2.webp 2x`)
+        +e.IMG.phone(class="lozad" data-src=`img/content/iphone.webp` data-srcset=`img/content/iphone@x2.webp 2x` alt="Картинка приложения inka")
