@@ -1,4 +1,8 @@
 .count {
+    @media (min-width: $break_xs) {
+        padding-top: 70px;
+        padding-bottom: 250px;
+    }
     @media (min-width: $break_md) {
         padding-top: 85px;
         padding-bottom: 85px;
@@ -19,7 +23,7 @@
     &__background-img {
         @media (min-width: $break_lg) {
             display: block;
-            max-width: 400px;
+            max-width: 440px;
         }
         @media (min-width: $break_xl) {
             max-width: 740px;
@@ -33,15 +37,36 @@
         right: 0;
         top: 0;
     }
-    &__list {
+    &__background-img-mob {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        display: none;
+        @media (min-width: $break_xs) {
+            display: block;
+        }
         @media (min-width: $break_md) {
+            display: none;
+        }
+    }
+    &__list {
+        @media (min-width: $break_xs) {
             display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        @media (min-width: $break_md) {
             justify-content: center;
-            align-items: center;
+            align-items: start;
         }
         @media (min-width: $break_lg) {
             justify-content: left;
             padding-left: 50px;
+            margin-left: 0;
+            max-width: 765px;
         }
         @media (min-width: $break_xl) {
             justify-content: left;
@@ -57,8 +82,11 @@
         //margin-bottom: 48px;
     }
     &__item + &__item {
-        @media (min-width: $break_sm) {
-            margin-top: 62px;
+        //@media (min-width: $break_sm) {
+        //    margin-top: 62px;
+        //}
+        @media (min-width: $break_xs) {
+            margin-top: 0px;
         }
         @media (min-width: $break_md) {
             margin-left: 70px;
@@ -71,15 +99,25 @@
         margin-top: 48px;
     }
     &__number {
+        @media (min-width: $break_xs) {
+            font-size: 46px;
+            line-height: 46px;
+        }
+        @media (min-width: $break_sm) {
+            font-size: 64px;
+            line-height: 64px;
+        }
         @media (min-width: $break_md) {
             font-size: 70px;
             line-height: 62px;
         }
         @media (min-width: $break_lg) {
             font-size: 76px;
+            line-height: 76px;
         }
         @media (min-width: $break_xl) {
             font-size: 100px;
+            line-height: 100px;
         }
         font-family: "Roboto";
         font-weight: bold;
@@ -92,6 +130,12 @@
         text-align: center;
     }
     &__text {
+        @media (min-width: $break_xs) {
+            font-size: 20px;
+        }
+        @media (min-width: $break_sm) {
+            font-size: 22px;
+        }
         @media (min-width: $break_lg) {
             font-size: 26px;
         }

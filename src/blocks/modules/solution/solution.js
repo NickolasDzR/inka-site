@@ -1,4 +1,79 @@
 import lozad from 'lozad'
+// import Sticky from "sticky-js"
+
+
+const imagesDesktop = document.querySelectorAll('.solution__img-fixed');
+const solutionItem = document.querySelectorAll('.solution__item');
+
+// const setDataMarginFixedImg = () => {
+//     const wh = window.innerHeight;
+//     imagesDesktop.forEach((el, i) => {
+//         const imageHeight = el.offsetHeight;
+//         const formula = (wh / 2) - (imageHeight / 2);
+//
+//         el.dataset.marginTop = `${formula}px`;
+//     });
+// };
+// setDataMarginFixedImg();
+//
+// const stickyOne = new Sticky(`.solution__img-sticky_one`, {
+// }).update();
+//
+// const stickyTwo = new Sticky(`.solution__img-sticky_two`, {
+// }).update();
+//
+// const stickyThree = new Sticky(`.solution__img-sticky_three`, {
+// }).update();
+//
+// const stickyFour = new Sticky(`.solution__img-sticky_four`, {
+// }).update();
+//
+//
+//
+// let oldScrollPosition = window.scrollY;
+//
+// document.addEventListener("scroll", (e) => {
+//     const newScrollPosition = window.scrollY;
+//     if (newScrollPosition > oldScrollPosition) {
+//         oldScrollPosition = newScrollPosition
+//         stickyClassHandler(true);
+//     } else {
+//         oldScrollPosition = newScrollPosition
+//         stickyClassHandler(false)
+//     }
+// });
+//
+// const deleteClassesElements = (className, els) => {
+//     els.forEach(el => {
+//         if (el.classList.contains(className)) {
+//             el.classList.remove(className);
+//         }
+//     })
+// };
+//
+// let indexActiveImg = 0;
+//
+// const stickyClassHandler = (bool) => {
+//     const solutionImg = document.querySelectorAll(".solution__img-sticky");
+//     const scrollSide = bool
+//     if (scrollSide) {
+//         solutionImg.forEach((el, index) => {
+//             if (el.classList.contains("solution__img-sticky_show")) {
+//                 console.log(el);
+//                 if (index === solutionImg.length - 1) {
+//                     return false;
+//                 } else {
+//                     indexActiveImg === index;
+//                     deleteClassesElements("solution__img-sticky_show", solutionImg)
+//                     solutionImg[index + 1].classList.add("solution__img-sticky_show");
+//                 }
+//             }
+//         });
+//     }
+// };
+
+
+////////////// here
 
 const matchMdMedia = () => {
     if (window.matchMedia("(min-width: 768px)").matches) {
@@ -11,8 +86,8 @@ const matchMdMedia = () => {
 }
 
 const imagesMobile = document.querySelectorAll('.solution__img.lozad');
-const imagesDesktop = document.querySelectorAll('.solution__img-fixed');
-
+// const imagesDesktop = document.querySelectorAll('.solution__img-fixed');
+//
 const observer = lozad(imagesMobile);
 
 const solutionSection = document.querySelector(".solution"),
@@ -54,7 +129,7 @@ const scrolledImgHandler = () => {
     } else {
         solutionItemsWrpOffsetTop.forEach((el, index) => {
             if ((solutionOffsetTop + solutionItemsWrpOffsetTop[index]) - centerWindow < -100) {
-                solutionFixed.style.cssText = `position: fixed; 
+                solutionFixed.style.cssText = `position: fixed;
                                                 transform: translate3d(${imageCoordination}px, 37.5%, 0px);`
                 deleteImageClass(index);
                 imagesDesktop[index].classList.add("solution__img-fixed_show");

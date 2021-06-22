@@ -14,11 +14,24 @@ mixin solution(value = false)
                                     |   Inka. How it works
                                 +e.P.title #{val[0]}
                                 +e.P.text #{val[1]}
-                            +e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x`)
+                            //+e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x`)
+                //+e.images
+                //    +e.images-wrp(data-sticky-container)
+                //        +e.IMG.img-sticky._one(data-sticky-container data-sticky-wrap="true" data-sticky-class="solution__img-sticky_show" src=`img/content/liquid-swap.webp` srcset=`img/content/liquid-swap.webp 2x`)
+                //    +e.images-wrp(data-sticky-container)
+                //        +e.IMG.img-sticky._two(data-sticky-container data-sticky-wrap="true" data-sticky-class="solution__img-sticky_show" src=`img/content/defi-staking.webp` srcset=`img/content/defi-staking.webp 2x`)
+                //    +e.images-wrp(data-sticky-container)
+                //        +e.IMG.img-sticky._three(data-sticky-container data-sticky-wrap="true" data-sticky-class="solution__img-sticky_show" src=`img/content/dex.webp` srcset=`img/content/dex.webp 2x`)
+                //    +e.images-wrp(data-sticky-container)
+                //        +e.IMG.img-sticky._four(data-sticky-container data-sticky-wrap="true" data-sticky-class="solution__img-sticky_show" src=`img/content/crypto-founds.webp` srcset=`img/content/crypto-founds.webp 2x`)
                 +e.fixed
                     +e.fixed-items
                         each val, i in value.solutionContent
+                            -
+                                var
+                                    arImg = ["one", "two", "three", "four"]
+                                    className = "_" + `${arImg[i]}`
                             if i > 0
-                                +e.IMG.img-fixed.lozad(data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[2]}.webp 2x`)
+                                +e.IMG.img-fixed(class=className  src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x`)
                             else
-                                +e.IMG.img-fixed._show.lozad(data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x`)
+                                +e.IMG.img-fixed(class="_one" src=`img/content/${val[2]}.webp` srcset=`img/content/${val[3]}.webp 2x`)
