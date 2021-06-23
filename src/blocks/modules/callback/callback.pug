@@ -1,12 +1,19 @@
 mixin callback(value = false)
     include ../../components/input/input
+    include ../../components/btn/btn
     -
         var
                 modificator = value.mod ? `_${value.mod}` : ""
     +b.callback(class=modificator)
-        +e.FORM.form
-            +input({
-                placeholder: value.placeholder,
-                type: value.type,
-                btnText: value.btnText,
+        +e.FORM.form(data-error="Ошибка отправки данных, попробуйте перезагрузить страницу")
+            each val, i in value.content
+                +input({
+                    placeholder: val[0],
+                    type: val[1],
+                    btnText: value.btnText,
+                    modification: "callback",
+                    dataType: val[2],
+                })
+            +btn({
+                text: value.btnText,
             })

@@ -101,7 +101,7 @@ const solutionItemsWrpPosition = solutionItemsWrp[0].offsetTop,
     coordinatsFixedTopFirstElement = solutionItems[0].offsetTop,
     coordinatsFixedTopLastElement = solutionItems[solutionItems.length - 1].offsetTop;
 
-let imageCoordination = imagesDesktop[0].getBoundingClientRect().left;
+// let imageCoordination = imagesDesktop[0].getBoundingClientRect().left;
 
 solutionItemsWrp.forEach(el => {
     solutionItemsWrpOffsetTop.push(el.offsetTop);
@@ -115,22 +115,26 @@ const deleteImageClass = (i) => {
     });
 }
 
+
 const scrolledImgHandler = () => {
     const scrolledFromTop = window.scrollY;
     const solutionOffsetTop = solutionSection.offsetTop;
     const wh = window.innerHeight;
     const centerWindow = Math.round(scrolledFromTop + (wh / 2))
 
-    if ((solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow > -121) {
-        solutionFixed.style.cssText = "top: 0; bottom: auto;"
+    if ((solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow > -150) {
+        solutionFixed.style.cssText = "top: 130px; bottom: auto;"
     } else if ((solutionOffsetTop + solutionItemsWrpOffsetTop[solutionItemsWrpOffsetTop.length - 1]) - centerWindow < -(solutionItemHeight - 60)) {
-        imagesDesktop[imagesDesktop.length - 1].style.cssText = "bottom: 0; top: auto;";
+        imagesDesktop[imagesDesktop.length - 1].style.cssText = "bottom: 130px; top: auto;";
         solutionFixed.style.cssText = ""
     } else {
         solutionItemsWrpOffsetTop.forEach((el, index) => {
-            if ((solutionOffsetTop + solutionItemsWrpOffsetTop[index]) - centerWindow < -100) {
+            if ((solutionOffsetTop + solutionItemsWrpOffsetTop[index]) - centerWindow < -150) {
+
+                console.log((solutionOffsetTop + solutionItemsWrpOffsetTop[index]) - centerWindow)
+
                 solutionFixed.style.cssText = `position: fixed;
-                                                transform: translate3d(${imageCoordination}px, 37.5%, 0px);`
+                                                transform: translate3d(0, 18.5%, 0px);`
                 deleteImageClass(index);
                 imagesDesktop[index].classList.add("solution__img-fixed_show");
                 imagesDesktop[imagesDesktop.length - 1].style.cssText = "";

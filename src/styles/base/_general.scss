@@ -22,6 +22,12 @@ body {
     @include container();
 }
 
+.container-fix {
+    @include container();
+    @include md(max-width, $break_lg);
+    @include lg(max-width, $break_xl);
+}
+
 .row {
     @include row-flex();
 }
@@ -222,5 +228,9 @@ h2 {
         color: $white;
         text-align: center;
         margin-bottom: 24px;
+        transition: color .3s ease;
+    }
+    &__heading_error {
+        color: $red;
     }
 }

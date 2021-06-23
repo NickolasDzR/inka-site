@@ -14,7 +14,6 @@ const inkaSlider = new Glide('.glide', {
 const sliderBtns = document.querySelectorAll(".slider__slider-controller-btn");
 
 sliderBtns[0].addEventListener("click", (e) => {
-    console.log(el);
     const item = e.currentTarget;
     const index = item.dataset.slide;
     if (activeSlideIndex) {
@@ -29,7 +28,6 @@ sliderBtns[0].addEventListener("click", (e) => {
 
 sliderBtns.forEach(el => {
    el.addEventListener("click", (e) => {
-       console.log(el);
        const item = e.currentTarget;
        const index = item.dataset.slide;
        if (activeSlideIndex) {
