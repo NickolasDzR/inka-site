@@ -1,5 +1,8 @@
 mixin social(value = false)
-    +b.soc._footer
+    -
+        var
+                elem = value.elem
+    +b.soc(class=elem)
         +e.UL.list
             each val, i in value.iconsName
                     +e.LI.item

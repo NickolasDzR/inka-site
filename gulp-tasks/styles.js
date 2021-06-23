@@ -28,7 +28,7 @@ gulp.task("styles", () => {
             grid: true
         })))
         .pipe(gulpif(production, mincss({
-            compatibility: "ie8", level: {
+            compatibility: "ie11", level: {
                 1: {
                     specialComments: 0,
                     removeEmpty: true,

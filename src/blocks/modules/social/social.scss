@@ -1,9 +1,6 @@
 .soc {
     @include col();
     @include size(12);
-    &_footer {
-        margin-bottom: 24px;
-    }
     &__list {
         @media (min-width: $break_md) {
             max-width: 365px;

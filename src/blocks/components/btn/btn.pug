@@ -1,2 +1,5 @@
 mixin btn(value = false)
-    +b.BUTTON.button(type="submit") #{value.text}
+    -
+        var
+                elem = value.elem ? value.elem : "";
+    +b.BUTTON.button(class=elem type="submit") #{value.text}

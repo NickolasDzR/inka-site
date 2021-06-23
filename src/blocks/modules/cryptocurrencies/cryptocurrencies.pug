@@ -9,14 +9,14 @@ mixin cryptocurrencies(value = false)
                             +e.LI.item #{val}
                 +e.controll(data-animation-time="10", data-animation-hide-crypto="2")
                     +e.circle
+                        - var i = 1
                         +e.UL.list-cryptos
-                            - for (let i = 1; i <= value.cryptos; i++)
-                                - var imageUrl = "img/content/crypto-" + i + ".webp"
-                                - var imageUrlx2 = "img/content/crypto-" + i + "@x2.webp x2"
+                            while i <= 10
+                                - var imageUrl = "img/svg/crypto-" + i +".svg"
                                 - var className = "_" + i
+                                - i++
                                 +e.item-img(class=className)
-                                    //+e.IMG.cryptos(src=imageUrl)
-                                    +e.IMG.cryptos(class="lozad" data-src=imageUrl data-srcset=imageUrlx2)
+                                    +e.IMG.cryptos.lozad(data-src=imageUrl)
                         +e.circle-wrp
                             +e.circle-inner
                                 +e.circle-cover

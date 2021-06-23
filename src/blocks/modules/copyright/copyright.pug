@@ -1,5 +1,8 @@
 mixin copyright(value = false)
-    +b.copyright
+    -
+        var
+                elem = value.elem
+    +b.copyright(class=elem)
         +e.logo-wrp
             +icon({
                 name: "logo-white",

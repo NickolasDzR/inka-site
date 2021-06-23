@@ -1,10 +1,12 @@
 mixin icon(value = false)
     -
         const
-                modifier = value.modifier ? value.class + '_' + value.name : ''
-        image = value.alt ? value.alt : false
+            modifier = value.modifier ? value.class + '_' + value.name : ''
+            image = value.alt ? value.alt : false
+            height = value.height ? value.height : ""
+            width = value.width ? value.width : ""
     if value.path
-        img(class= value.class, class=modifier, src=`img/svg/${value.name}.svg`)
+        img(class= value.class, class=modifier, src=`img/svg/${value.name}.svg` width=width height=height)
     else
         svg(class= value.class, class=modifier, viewbox=value.viewbox role=image ? "img" : image, aria-label=image)
             use(xlink:href=`img/sprites/sprite.svg#${value.name}`)

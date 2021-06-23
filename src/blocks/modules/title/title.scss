@@ -17,6 +17,10 @@
         width: 100%;
         max-width: 350px;
         margin: 0 auto;
+        margin-bottom: 45px;
+    }
+    &__img-app {
+        display: block;
     }
 
     &__img {
@@ -34,15 +38,17 @@
     }
 
     &__heading {
+        font-weight: bold;
+        font-size: 36px;
         width: 100%;
         margin-bottom: 25px;
+        text-align: center;
     }
 
     &__list {
         @media (min-width: $break_md) {
             margin-bottom: 36px;
         }
-        padding-left: 19px;
         margin-bottom: 25px;
     }
 
@@ -55,10 +61,29 @@
             font-size: 24px;
             margin-bottom: 15px;
         }
+
+        display: flex;
+        align-items: flex-start;
+
         font-family: $font-family-base;
-        font-size: 16px;
-        list-style: disc;
-        margin-bottom: 5px;
+        font-size: 18px;
+        color: $font-light-black;
+        position: relative;
+        &_text_big {
+            font-size: 48px;
+            font-weight: 500;
+        }
+        & + & {
+            margin-top: 24px;
+        }
+    }
+    &__list-svg {
+        width: 13px;
+        height: 20px;
+        min-width: 13px;
+        min-height: 20px;
+        margin-right: 25px;
+        display: block;
     }
 
     &__worth {
@@ -106,29 +131,26 @@
         border-radius: 20px;
     }
 
-    &__worth-text_medium {
-        font-size: 24px;
-        font-weight: 500;
-    }
-
-    &__worth-text_big {
-        font-size: 48px;
-        font-weight: 500;
-    }
-
     &__app-store {
-        @media (min-width: $break_md) {
-            display: flex;
-        }
+        display: flex;
+        justify-content: center;
     }
 
     &__app-store-item {
         margin-bottom: 10px;
+        & + & {
+            margin-left: 15px;
+        }
     }
 
     &__app-store-item + &__app-store-item {
         @media (min-width: $break_md) {
             margin-left: 24px;
         }
+    }
+    &__qr-code {
+        width: 40px;
+        height: 40px;
+        display: block;
     }
 }

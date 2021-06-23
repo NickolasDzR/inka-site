@@ -14,7 +14,7 @@ mixin solution(value = false)
                                     |   Inka. How it works
                                 +e.P.title #{val[0]}
                                 +e.P.text #{val[1]}
-                            +e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x`)
+                            +e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x` width=val[4] height=val[5])
                 +e.fixed
                     +e.fixed-items
                         each val, i in value.solutionContent
@@ -23,6 +23,6 @@ mixin solution(value = false)
                                     arImg = ["one", "two", "three", "four"]
                                     className = "_" + `${arImg[i]}`
                             if i > 0
-                                +e.IMG.img-fixed(class=className  src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x`)
+                                +e.IMG.img-fixed(class=className src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x`)
                             else
                                 +e.IMG.img-fixed._show(class="_one" src=`img/content/${val[2]}.webp` srcset=`img/content/${val[3]}.webp 2x`)
