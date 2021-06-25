@@ -4,7 +4,8 @@ mixin solution(value = false)
             .row(style="position: relative;")
                 +e.UL.content
                     each val, i in value.solutionContent
-                        +e.LI.item
+                        - var className = `_${i}`
+                        +e.LI.item(class=className)
                             +e.item-wrp
                                 +e.P.sign
                                     +icon({
@@ -14,15 +15,19 @@ mixin solution(value = false)
                                     |   Inka. How it works
                                 +e.P.title #{val[0]}
                                 +e.P.text #{val[1]}
-                            +e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x` width=val[4] height=val[5])
+                            if i === 3
+                                +e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x` width="350" height="202")
+                            else
+                                +e.IMG.img(class="lozad" data-src=`img/content/${val[2]}.webp` data-srcset=`img/content/${val[3]}.webp 2x` width="350" height="267")
                 +e.fixed
                     +e.fixed-items
                         each val, i in value.solutionContent
                             -
                                 var
-                                    arImg = ["one", "two", "three", "four"]
-                                    className = "_" + `${arImg[i]}`
+                                    className = `img-${i}`
+                                    width = `${val[4]}`
+                                    height = `${val[5]}`
                             if i > 0
-                                +e.IMG.img-fixed(class=className src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x`)
+                                +e.IMG.img-fixed(data-marker-content=className style="visibility: hidden; opacity: 0;" src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x` width=width height=height)
                             else
-                                +e.IMG.img-fixed._show(class="_one" src=`img/content/${val[2]}.webp` srcset=`img/content/${val[3]}.webp 2x`)
+                                +e.IMG.img-fixed(data-marker-content=className src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x` width=width height=height)

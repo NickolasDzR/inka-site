@@ -1,6 +1,4 @@
 import lozad from 'lozad'
-// import Sticky from "sticky-js"
-
 
 const imagesDesktop = document.querySelectorAll('.solution__img-fixed'),
     solutionItem = document.querySelectorAll('.solution__item'),
@@ -17,20 +15,12 @@ const matchMdMedia = () => {
     }
 }
 
-const scrollSide = () => {
-    const newScrollPosition = window.scrollY;
-    const scrollPosition = newScrollPosition > oldScrollPosition ? true : false
-
-    oldScrollPosition = newScrollPosition
-
-    return scrollPosition;
-}
-
 const solutionSection = document.querySelector(".solution"),
     solutionItems = document.querySelectorAll(".solution__item"),
     solutionItemsWrp = document.querySelectorAll(".solution__item-wrp"),
     solutionItemHeight = solutionItemsWrp[0].offsetHeight,
-    solutionFixed = document.querySelector(".solution__fixed-items");
+    solutionFixed = document.querySelector(".solution__fixed-items"),
+    solutionFixedMain = document.querySelector(".solution__fixed");
 
 const solutionItemsWrpPosition = solutionItemsWrp[0].offsetTop,
     solutionItemsWrpOffsetTop = [],
@@ -43,113 +33,107 @@ solutionItemsWrp.forEach(el => {
 
 let imageCoordination = imagesDesktop[0].getBoundingClientRect().left;
 
-const scrolledImgHandler = (scrollDir) => {
-    const scrolledFromTop = window.scrollY;
-    const solutionOffsetTop = solutionSection.offsetTop;
-    const wh = window.innerHeight;
-    const centerWindow = Math.round(scrolledFromTop + (wh / 2));
-    const bodyRect = Math.abs(document.body.getBoundingClientRect().top);
-    const lastElementPositionCenter = solutionItemsWrp[solutionItemsWrp.length - 1].getBoundingClientRect().top + (solutionItemsWrp[solutionItemsWrp.length - 1].offsetHeight / 2);
-    const bottomPosition = (bodyRect - lastElementPositionCenter) - (bodyRect - (window.innerHeight / 2)) >= 0;
-    const topPosition = (solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow >= `-${solutionItemsWrp[0].offsetHeight / 2}`;
-
-    if ((solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow < -150 && !topPosition && !bottomPosition) {
-
-        solutionFixed.style.cssText = `position: fixed;
-                                                transform: translate3d(0, 18.5%, 0px);`;
-    } else if (topPosition) {
-        solutionFixed.style.cssText = ``;
-    } else if (bottomPosition) {
-        solutionFixed.style.cssText = ``;
-    }
-
-    solutionItemsWrp.forEach((el, index) => {
-        const centerWindow = (bodyRect - (window.innerHeight / 2));
-        const currentElementInCenter = (bodyRect - Math.abs(el.getBoundingClientRect().top) - (el.offsetHeight / 2));
-
-        if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) > 280 && Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) < 320 && !scrollDir) {
-            // scroll top direction
-            if (index === 2 && currentElementInCenter > 4000) {
-                return false;
-            } else {
-                if (index !== 0) {
-                    imagesDesktop[index].classList.remove("solution__img-fixed_show");
-                    imagesDesktop[index - 1].classList.add("solution__img-fixed_show");
-                }
-            }
-        } else if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) < -230 && !Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) > -260 && scrollDir && index !== 3) {
-            // scroll bottom direction
-            if (index !== imagesDesktop.length - 1) {
-                imagesDesktop[index].classList.remove("solution__img-fixed_show");
-                imagesDesktop[index + 1].classList.add("solution__img-fixed_show");
-            }
-        }
-
-        if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) <= 70 && index === 3 && !imagesDesktop[imagesDesktop.length - 1].classList.contains("solution__img-fixed_show")) {
-            imagesDesktop[index].classList.add("solution__img-fixed_show");
-            imagesDesktop[index - 1].classList.remove("solution__img-fixed_show");
-            if (imagesDesktop[0].classList.contains("solution__img-fixed_show")) {
-                imagesDesktop[0].classList.remove("solution__img-fixed_show")
-            }
-        } else if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) <= 0 && index === 3) {
-            imagesDesktop[index].style.top = `auto`;
-            imagesDesktop[index].style.bottom = `170px`;
-        } else if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) > 0 && index === 3) {
-            imagesDesktop[index].style.top = `0`;
-            imagesDesktop[index].style.bottom = `auto`;
-        }
-    });
-}
-
-window.onscroll = function (e) {
-
-    const scrollDir = this.oldScroll < this.scrollY
-    this.oldScroll = this.scrollY;
-
-    if (!matchMdMedia()) {
-        scrolledImgHandler(scrollDir);
-
-        imagesMobile.forEach(el => {
-            if (el.classList.contains("lozad")) {
-                el.style.display = "none";
-            }
-        })
-    }
-}
-
 window.addEventListener("resize", function () {
-    if (!matchMdMedia()) {
-        imagesMobile.forEach(el => {
-            if (el.classList.contains("lozad")) {
-                el.style.display = "none";
-            }
-        })
-        imagesDesktop.forEach(el => {
-            el.style.display = "block";
-        });
-    } else {
-        imagesMobile.forEach(el => {
-            if (el.classList.contains("lozad")) {
-                el.style.display = "block";
-            }
-        })
-        observer.observe();
-        imagesDesktop.forEach(el => {
-            el.style.display = "none";
-        });
-    }
+
 });
 
-if (matchMdMedia()) {
-    imagesDesktop.forEach(el => {
-        el.style.display = "none";
-    });
-    observer.observe();
-} else {
-    imagesMobile.forEach(el => {
-        if (el.classList.contains("lozad")) {
-            el.style.display = "none";
+const getCoords = (elem) => { // crossbrowser version
+    var box = elem.getBoundingClientRect();
+
+    var body = document.body;
+    var docEl = document.documentElement;
+
+    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    var clientTop = docEl.clientTop || body.clientTop || 0;
+    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    var top = box.top + scrollTop - clientTop;
+    var left = box.left + scrollLeft - clientLeft;
+
+    return {top: Math.round(top), left: Math.round(left)};
+}
+
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.defaults({overwrite: 'auto'});
+
+// const contentMarkers = document.querySelectorAll(".solution__item img");
+const contentMarkers = gsap.utils.toArray(".solution__img-fixed");
+const contentMarkserBlock = gsap.utils.toArray(".solution__item");
+
+gsap.set(".solution__fixed-items > *", {xPercent: -50});
+
+const getCoordinateOfElement = (item) => {
+    const centerW = (window.innerHeight / 2) - (item.offsetHeight  / 2);
+    return centerW;
+}
+
+const animationFixes = ScrollTrigger.create({
+    trigger: '.solution__content',
+    start: `top+=40 top+=${getCoordinateOfElement(contentMarkers[0])}`,
+    end: `bottom+=55 bottom-=${getCoordinateOfElement(contentMarkers[0])}`,
+    onUpdate: getCurrentSection,
+    pin: ".solution__fixed",
+})
+
+let rendered = false;
+
+contentMarkserBlock.forEach((marker, index) => {
+    marker.content = contentMarkers[index];
+
+    marker.content.enter = function() {
+        gsap.fromTo(marker.content, {autoAlpha: 0, rotateY: -30}, {duration: 0.3, autoAlpha: 1, rotateY: 0});
+    }
+
+    marker.content.leave = function() {
+        gsap.to(marker.content, {duration: 0.1, autoAlpha: 0});
+    }
+
+});
+
+let lastContent;
+
+function getCurrentSection() {
+    let newContent;
+    const currScroll = scrollY + (window.innerHeight / 2);
+
+    // Find the current section
+    contentMarkserBlock.forEach((marker, index) => {
+
+        // const elemHeight = marker.content.offsetHeight;
+        if (currScroll > getCoords(marker).top) {
+            console.log(currScroll, getCoords(marker).top)
+            newContent = marker.content;
         }
-    })
-    scrolledImgHandler();
+    });
+
+    // If the current section is different than that last, animate in
+    if (newContent && (lastContent == null || !newContent.isSameNode(lastContent))) {
+        // Fade out last section
+        if (lastContent) {
+            lastContent.leave();
+        }
+        // Animate in new section
+        newContent.enter();
+
+        lastContent = newContent;
+    }
+
+}
+
+const media = window.matchMedia("screen and (max-width: 768px)");
+ScrollTrigger.addEventListener("refreshInit", checkSTState);
+checkSTState();
+
+function checkSTState() {
+    if(media.matches) {
+        animationFixes.disable();
+        observer.observe();
+    } else {
+        animationFixes.enable();
+    }
 }
