@@ -8,7 +8,8 @@ mixin steps(value = false)
                         each img, i in value.imagesUrl
                             +e.LI.item
                                 +e.number
-                                    +e.number-text #{i}
+                                    +e.number-text-wrp
+                                        +e.number-text #{i}
                                 +e.SPAN.text #{value.text[i]}
                     +e.curve-wrp
                         each val, i in value.imagesUrl

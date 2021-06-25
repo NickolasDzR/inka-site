@@ -12,21 +12,21 @@ mixin title(value = false)
                                 class: "title__list-svg"
                             })
                             +e.item-text
-                                | Interest rate under <strong>30%</strong>
+                                | Interest rate<br> under <strong class="title__strong title__strong_big">30%</strong>
                         +e.LI.item
                             +icon({
                                 name: "arrow-right",
                                 class: "title__list-svg"
                             })
                             +e.item-text
-                                | <strong>Best</strong> exchange rate <strong>worldwide</strong>
+                                | <strong class="title__strong">Best</strong> exchange rate <strong class="title__strong">worldwide</strong>
                         +e.LI.item
                             +icon({
                                 name: "arrow-right",
                                 class: "title__list-svg"
                             })
                             +e.item-text
-                                | <strong>All</strong> services and cryptocurrencies <strong>in one</strong> wallet
+                                | <strong class="title__strong">All</strong> services & cryptocurrencies <strong class="title__strong">in one</strong> wallet
                     +e.UL.app-store
                         +e.LI.app-store-item
                             +e.A.app-stire-link(href="https://apps.apple.com/ru/app/яндекс-карты/id313877526" target="_blank")
@@ -36,10 +36,11 @@ mixin title(value = false)
                                 +e.IMG.img-app(class="lozad" data-src=`img/content/google-play.webp` data-srcset=`img/content/google-play@x2.webp 2x` height="40" width="115")
                         +e.LI.app-store-item
                             +e.A.app-store-link(href="#")
-                                +icon({
-                                    name: "qr-code",
-                                    class: "title__qr-code"
-                                })
+                                +e.app-store-link-wrp
+                                    +icon({
+                                        name: "qr-code",
+                                        class: "title__qr-code qr-code"
+                                    })
                 +e.img
                     +b.IMG(class="lozad" data-src=`img/content/title-desk.webp` data-srcset=`img/content/title-desk@x2.webp 2x` media="(max-width: 992px)")
 

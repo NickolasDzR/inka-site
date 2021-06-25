@@ -2,78 +2,10 @@ import lozad from 'lozad'
 // import Sticky from "sticky-js"
 
 
-const imagesDesktop = document.querySelectorAll('.solution__img-fixed');
-const solutionItem = document.querySelectorAll('.solution__item');
-
-// const setDataMarginFixedImg = () => {
-//     const wh = window.innerHeight;
-//     imagesDesktop.forEach((el, i) => {
-//         const imageHeight = el.offsetHeight;
-//         const formula = (wh / 2) - (imageHeight / 2);
-//
-//         el.dataset.marginTop = `${formula}px`;
-//     });
-// };
-// setDataMarginFixedImg();
-//
-// const stickyOne = new Sticky(`.solution__img-sticky_one`, {
-// }).update();
-//
-// const stickyTwo = new Sticky(`.solution__img-sticky_two`, {
-// }).update();
-//
-// const stickyThree = new Sticky(`.solution__img-sticky_three`, {
-// }).update();
-//
-// const stickyFour = new Sticky(`.solution__img-sticky_four`, {
-// }).update();
-//
-//
-//
-// let oldScrollPosition = window.scrollY;
-//
-// document.addEventListener("scroll", (e) => {
-//     const newScrollPosition = window.scrollY;
-//     if (newScrollPosition > oldScrollPosition) {
-//         oldScrollPosition = newScrollPosition
-//         stickyClassHandler(true);
-//     } else {
-//         oldScrollPosition = newScrollPosition
-//         stickyClassHandler(false)
-//     }
-// });
-//
-// const deleteClassesElements = (className, els) => {
-//     els.forEach(el => {
-//         if (el.classList.contains(className)) {
-//             el.classList.remove(className);
-//         }
-//     })
-// };
-//
-// let indexActiveImg = 0;
-//
-// const stickyClassHandler = (bool) => {
-//     const solutionImg = document.querySelectorAll(".solution__img-sticky");
-//     const scrollSide = bool
-//     if (scrollSide) {
-//         solutionImg.forEach((el, index) => {
-//             if (el.classList.contains("solution__img-sticky_show")) {
-//                 console.log(el);
-//                 if (index === solutionImg.length - 1) {
-//                     return false;
-//                 } else {
-//                     indexActiveImg === index;
-//                     deleteClassesElements("solution__img-sticky_show", solutionImg)
-//                     solutionImg[index + 1].classList.add("solution__img-sticky_show");
-//                 }
-//             }
-//         });
-//     }
-// };
-
-
-////////////// here
+const imagesDesktop = document.querySelectorAll('.solution__img-fixed'),
+    solutionItem = document.querySelectorAll('.solution__item'),
+    imagesMobile = document.querySelectorAll('.solution__img.lozad'),
+    observer = lozad(imagesMobile);
 
 const matchMdMedia = () => {
     if (window.matchMedia("(min-width: 768px)").matches) {
@@ -85,10 +17,14 @@ const matchMdMedia = () => {
     }
 }
 
-const imagesMobile = document.querySelectorAll('.solution__img.lozad');
-// const imagesDesktop = document.querySelectorAll('.solution__img-fixed');
-//
-const observer = lozad(imagesMobile);
+const scrollSide = () => {
+    const newScrollPosition = window.scrollY;
+    const scrollPosition = newScrollPosition > oldScrollPosition ? true : false
+
+    oldScrollPosition = newScrollPosition
+
+    return scrollPosition;
+}
 
 const solutionSection = document.querySelector(".solution"),
     solutionItems = document.querySelectorAll(".solution__item"),
@@ -101,51 +37,77 @@ const solutionItemsWrpPosition = solutionItemsWrp[0].offsetTop,
     coordinatsFixedTopFirstElement = solutionItems[0].offsetTop,
     coordinatsFixedTopLastElement = solutionItems[solutionItems.length - 1].offsetTop;
 
-// let imageCoordination = imagesDesktop[0].getBoundingClientRect().left;
-
 solutionItemsWrp.forEach(el => {
     solutionItemsWrpOffsetTop.push(el.offsetTop);
 });
 
-const deleteImageClass = (i) => {
-    return imagesDesktop.forEach((el, index) => {
-        if (index !== i && el.classList.contains("solution__img-fixed_show")) {
-            el.classList.remove("solution__img-fixed_show");
+let imageCoordination = imagesDesktop[0].getBoundingClientRect().left;
+
+const scrolledImgHandler = (scrollDir) => {
+    const scrolledFromTop = window.scrollY;
+    const solutionOffsetTop = solutionSection.offsetTop;
+    const wh = window.innerHeight;
+    const centerWindow = Math.round(scrolledFromTop + (wh / 2));
+    const bodyRect = Math.abs(document.body.getBoundingClientRect().top);
+    const lastElementPositionCenter = solutionItemsWrp[solutionItemsWrp.length - 1].getBoundingClientRect().top + (solutionItemsWrp[solutionItemsWrp.length - 1].offsetHeight / 2);
+    const bottomPosition = (bodyRect - lastElementPositionCenter) - (bodyRect - (window.innerHeight / 2)) >= 0;
+    const topPosition = (solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow >= `-${solutionItemsWrp[0].offsetHeight / 2}`;
+
+    if ((solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow < -150 && !topPosition && !bottomPosition) {
+
+        solutionFixed.style.cssText = `position: fixed;
+                                                transform: translate3d(0, 18.5%, 0px);`;
+    } else if (topPosition) {
+        solutionFixed.style.cssText = ``;
+    } else if (bottomPosition) {
+        solutionFixed.style.cssText = ``;
+    }
+
+    solutionItemsWrp.forEach((el, index) => {
+        const centerWindow = (bodyRect - (window.innerHeight / 2));
+        const currentElementInCenter = (bodyRect - Math.abs(el.getBoundingClientRect().top) - (el.offsetHeight / 2));
+
+        if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) > 280 && Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) < 320 && !scrollDir) {
+            // scroll top direction
+            if (index === 2 && currentElementInCenter > 4000) {
+                return false;
+            } else {
+                if (index !== 0) {
+                    imagesDesktop[index].classList.remove("solution__img-fixed_show");
+                    imagesDesktop[index - 1].classList.add("solution__img-fixed_show");
+                }
+            }
+        } else if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) < -230 && !Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) > -260 && scrollDir && index !== 3) {
+            // scroll bottom direction
+            if (index !== imagesDesktop.length - 1) {
+                imagesDesktop[index].classList.remove("solution__img-fixed_show");
+                imagesDesktop[index + 1].classList.add("solution__img-fixed_show");
+            }
+        }
+
+        if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) <= 70 && index === 3 && !imagesDesktop[imagesDesktop.length - 1].classList.contains("solution__img-fixed_show")) {
+            imagesDesktop[index].classList.add("solution__img-fixed_show");
+            imagesDesktop[index - 1].classList.remove("solution__img-fixed_show");
+            if (imagesDesktop[0].classList.contains("solution__img-fixed_show")) {
+                imagesDesktop[0].classList.remove("solution__img-fixed_show")
+            }
+        } else if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) <= 0 && index === 3) {
+            imagesDesktop[index].style.top = `auto`;
+            imagesDesktop[index].style.bottom = `170px`;
+        } else if (Math.round(bodyRect - (window.innerHeight / 2) - currentElementInCenter) > 0 && index === 3) {
+            imagesDesktop[index].style.top = `0`;
+            imagesDesktop[index].style.bottom = `auto`;
         }
     });
 }
 
+window.onscroll = function (e) {
 
-const scrolledImgHandler = () => {
-    const scrolledFromTop = window.scrollY;
-    const solutionOffsetTop = solutionSection.offsetTop;
-    const wh = window.innerHeight;
-    const centerWindow = Math.round(scrolledFromTop + (wh / 2))
+    const scrollDir = this.oldScroll < this.scrollY
+    this.oldScroll = this.scrollY;
 
-    if ((solutionOffsetTop + solutionItemsWrpOffsetTop[0]) - centerWindow > -150) {
-        solutionFixed.style.cssText = "top: 130px; bottom: auto;"
-    } else if ((solutionOffsetTop + solutionItemsWrpOffsetTop[solutionItemsWrpOffsetTop.length - 1]) - centerWindow < -(solutionItemHeight - 60)) {
-        imagesDesktop[imagesDesktop.length - 1].style.cssText = "bottom: 130px; top: auto;";
-        solutionFixed.style.cssText = ""
-    } else {
-        solutionItemsWrpOffsetTop.forEach((el, index) => {
-            if ((solutionOffsetTop + solutionItemsWrpOffsetTop[index]) - centerWindow < -150) {
-
-                console.log((solutionOffsetTop + solutionItemsWrpOffsetTop[index]) - centerWindow)
-
-                solutionFixed.style.cssText = `position: fixed;
-                                                transform: translate3d(0, 18.5%, 0px);`
-                deleteImageClass(index);
-                imagesDesktop[index].classList.add("solution__img-fixed_show");
-                imagesDesktop[imagesDesktop.length - 1].style.cssText = "";
-            }
-        });
-    }
-}
-
-document.addEventListener("scroll", function () {
     if (!matchMdMedia()) {
-        scrolledImgHandler();
+        scrolledImgHandler(scrollDir);
 
         imagesMobile.forEach(el => {
             if (el.classList.contains("lozad")) {
@@ -153,7 +115,7 @@ document.addEventListener("scroll", function () {
             }
         })
     }
-});
+}
 
 window.addEventListener("resize", function () {
     if (!matchMdMedia()) {

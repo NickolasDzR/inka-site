@@ -74,7 +74,6 @@ h1 {
 }
 
 h2 {
-    font-family: "Roboto";
     font-weight: bold;
     font-size: 24px;
     color: $font-light-black;
@@ -112,6 +111,19 @@ strong {
     }
 
     &__logo {
+        @media (min-width: $break_md) {
+            position: relative;
+            top: auto;
+            bottom: auto;
+            left: auto;
+            transform: none;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 89px;
+            height: 32px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
         z-index: 101;
         position: absolute;
         top: 50%;
@@ -241,5 +253,84 @@ strong {
             align-items: flex-end;
             justify-content: space-between;
         }
+    }
+}
+
+.qr-code-image {
+    @media (min-width: $break_lg) {
+        width: 280px;
+        height: 291px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 15px 31px 0px 31px;
+        border-radius: 20px;
+    }
+    display: block;
+    background-color: $white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px 15px 0px 15px;
+    width: 133px;
+    height: 138px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, -30px);
+    z-index: 10;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform .3s ease, visibility .3s ease, opacity .3s ease;
+
+    &_active {
+        pointer-events: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, 0);
+    }
+
+    &__triangle {
+        @media (min-width: $break_lg) {
+            top: -13px;
+        }
+        position: absolute;
+        top: -7px;
+        left: 50%;
+        right: 50%;
+        transform: translateX(-50%);
+
+        &::before {
+            @media (min-width: $break_lg) {
+                border-left: 13px solid transparent;
+                border-right: 13px solid transparent;
+                border-bottom: 13px solid #fff;
+            }
+            content: "";
+            display: block;
+            width: 0px;
+            height: 0px;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid #fff;
+            margin-left: -10px;
+        }
+    }
+
+    svg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    span {
+        @media (min-width: $break_lg) {
+            font-size: 16px;
+            line-height: 19px;
+        }
+        font-size: 8px;
+        line-height: 8px;
     }
 }

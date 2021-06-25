@@ -1,4 +1,8 @@
 .title {
+    @media (min-width: $break_xl) {
+        padding-top:150px;
+        padding-bottom: 150px;
+    }
     padding-top: 60px;
     padding-bottom: 80px;
     &__content {
@@ -11,6 +15,9 @@
         flex-direction: column;
     }
     &__img-title {
+        @media (min-width: $break_sm) {
+            margin-bottom: 70px;
+        }
         @media (min-width: $break_md) {
             display: none;
         }
@@ -20,6 +27,10 @@
         margin-bottom: 45px;
     }
     &__img-app {
+        @media (min-width: $break_sm) {
+            width: 184px;
+            height: 64px;
+        }
         display: block;
     }
 
@@ -38,6 +49,12 @@
     }
 
     &__heading {
+        @media (min-width: $break_md) {
+            margin-bottom: 64px;
+        }
+        @media (min-width: $break_lg) {
+            text-align: left;
+        }
         font-weight: bold;
         font-size: 36px;
         width: 100%;
@@ -46,26 +63,47 @@
     }
 
     &__list {
+        @media (min-width: $break_sm) {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 70px;
+        }
         @media (min-width: $break_md) {
-            margin-bottom: 36px;
+            margin-bottom: 64px;
+        }
+        @media (min-width: $break_lg) {
+            margin-left: 0;
+        }
+        @media (min-width: $break_xl) {
+            margin-bottom: 120px;
         }
         margin-bottom: 25px;
     }
 
     &__item {
+        @media (min-width: $break_sm) {
+            box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            width: 172px;
+            padding: 21px;
+        }
         @media (min-width: $break_md) {
             font-size: 20px;
             margin-bottom: 10px;
         }
         @media (min-width: $break_lg) {
-            font-size: 24px;
+            font-size: 18px;
+            line-height: 26px;
             margin-bottom: 15px;
+            width: 200px;
+            padding: 24px;
         }
 
         display: flex;
-        align-items: flex-start;
+        align-items: center;
 
-        font-family: $font-family-base;
         font-size: 18px;
         color: $font-light-black;
         position: relative;
@@ -74,10 +112,43 @@
             font-weight: 500;
         }
         & + & {
+            @media (min-width: $break_sm) {
+                margin-top: 0;
+                margin-left: 15px;;
+            }
             margin-top: 24px;
         }
     }
+    &__item-text {
+        @media (min-width: $break_sm) {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        font-size: 18px;
+    }
+    &__strong {
+        @media (min-width: $break_md) {
+            font-size: 22px;
+        }
+        @media (min-width: $break_lg) {
+            font-size: 24px;
+        }
+        font-size: 20px;
+        &_big {
+            @media (min-width: $break_lg) {
+                font-size: 48px;
+                line-height: 45px;
+            }
+        }
+    }
     &__list-svg {
+        @media (min-width: $break_sm) {
+            display: none;
+        }
         width: 13px;
         height: 20px;
         min-width: 13px;
@@ -132,11 +203,17 @@
     }
 
     &__app-store {
+        @media (min-width: $break_lg) {
+            justify-content: flex-start
+        }
         display: flex;
         justify-content: center;
     }
 
     &__app-store-item {
+        @media (min-width: $break_sm) {
+            margin-bottom: 0;
+        }
         margin-bottom: 10px;
         & + & {
             margin-left: 15px;
@@ -148,7 +225,20 @@
             margin-left: 24px;
         }
     }
+    &__app-store-link {
+        display: block;
+        position: relative;
+    }
+    &__qr-code-image {
+        width: 100px;
+        height: 100px;
+    }
     &__qr-code {
+        @media (min-width: $break_sm) {
+            width: 64px;
+            height: 64px;
+        }
+        cursor: pointer;
         width: 40px;
         height: 40px;
         display: block;

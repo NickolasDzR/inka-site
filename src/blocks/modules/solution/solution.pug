@@ -4,7 +4,7 @@ mixin solution(value = false)
             .row(style="position: relative;")
                 +e.UL.content
                     each val, i in value.solutionContent
-                        +e.LI.item(data-index=`index_1`)
+                        +e.LI.item
                             +e.item-wrp
                                 +e.P.sign
                                     +icon({
