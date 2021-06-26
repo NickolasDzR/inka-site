@@ -28,6 +28,6 @@ mixin solution(value = false)
                                     width = `${val[4]}`
                                     height = `${val[5]}`
                             if i > 0
-                                +e.IMG.img-fixed(data-marker-content=className style="visibility: hidden; opacity: 0;" src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x` width=width height=height)
+                                +e.IMG.img-fixed(data-marker-content=className src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x` width=width height=height)
                             else
                                 +e.IMG.img-fixed(data-marker-content=className src=`img/content/${val[2]}.webp` srcset=`img/content/${val[2]}.webp 2x` width=width height=height)

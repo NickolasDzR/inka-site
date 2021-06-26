@@ -61,14 +61,13 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 gsap.defaults({overwrite: 'auto'});
 
-// const contentMarkers = document.querySelectorAll(".solution__item img");
 const contentMarkers = gsap.utils.toArray(".solution__img-fixed");
 const contentMarkserBlock = gsap.utils.toArray(".solution__item");
 
 gsap.set(".solution__fixed-items > *", {xPercent: -50});
 
 const getCoordinateOfElement = (item) => {
-    const centerW = (window.innerHeight / 2) - (item.offsetHeight  / 2);
+    const centerW = (window.innerHeight / 2) - (item.offsetHeight / 2);
     return centerW;
 }
 
@@ -80,20 +79,29 @@ const animationFixes = ScrollTrigger.create({
     pin: ".solution__fixed",
 })
 
-let rendered = false;
+const solutionScrollTrigger = ScrollTrigger.create({
+    trigger: '.solution',
+    start: "top bottom",
+    end: "bottom top",
+    onEnter: () => {
+        gsap.set(contentMarkers[0], {autoAlpha: 1});
+    },
+    onEnterBack : () => {
+        gsap.set(contentMarkers[contentMarkers.length - 1], {autoAlpha: 1});
+    },
+    markers: true,
+})
 
 contentMarkserBlock.forEach((marker, index) => {
     marker.content = contentMarkers[index];
 
-    if (index !== 0) {
-        gsap.set(marker.content, {autoAlpha: 0});
-    }
+    gsap.set(marker.content, {autoAlpha: 0});
 
-    marker.content.enter = function() {
+    marker.content.enter = function () {
         gsap.fromTo(marker.content, {autoAlpha: 0}, {duration: 0.3, autoAlpha: 1});
     }
 
-    marker.content.leave = function() {
+    marker.content.leave = function () {
         gsap.to(marker.content, {duration: 0.1, autoAlpha: 0});
     }
 
@@ -138,7 +146,7 @@ ScrollTrigger.addEventListener("refreshInit", checkSTState);
 checkSTState();
 
 function checkSTState() {
-    if(media.matches) {
+    if (media.matches) {
         animationFixes.disable();
         observer.observe();
     } else {
