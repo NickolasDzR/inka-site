@@ -89,7 +89,6 @@ const solutionScrollTrigger = ScrollTrigger.create({
     onEnterBack : () => {
         gsap.set(contentMarkers[contentMarkers.length - 1], {autoAlpha: 1});
     },
-    markers: true,
 })
 
 contentMarkserBlock.forEach((marker, index) => {
