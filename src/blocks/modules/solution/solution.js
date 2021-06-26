@@ -85,8 +85,12 @@ let rendered = false;
 contentMarkserBlock.forEach((marker, index) => {
     marker.content = contentMarkers[index];
 
+    if (index !== 0) {
+        gsap.set(marker.content, {autoAlpha: 0});
+    }
+
     marker.content.enter = function() {
-        gsap.fromTo(marker.content, {autoAlpha: 0, rotateY: -30}, {duration: 0.3, autoAlpha: 1, rotateY: 0});
+        gsap.fromTo(marker.content, {autoAlpha: 0}, {duration: 0.3, autoAlpha: 1});
     }
 
     marker.content.leave = function() {
@@ -96,6 +100,7 @@ contentMarkserBlock.forEach((marker, index) => {
 });
 
 let lastContent;
+let inited = false;
 
 function getCurrentSection() {
     let newContent;
@@ -106,7 +111,6 @@ function getCurrentSection() {
 
         // const elemHeight = marker.content.offsetHeight;
         if (currScroll > getCoords(marker).top) {
-            console.log(currScroll, getCoords(marker).top)
             newContent = marker.content;
         }
     });
@@ -118,7 +122,11 @@ function getCurrentSection() {
             lastContent.leave();
         }
         // Animate in new section
-        newContent.enter();
+        if (inited) {
+            newContent.enter();
+        }
+
+        inited = true;
 
         lastContent = newContent;
     }
