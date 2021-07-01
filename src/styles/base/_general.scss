@@ -87,6 +87,10 @@ strong {
     font-weight: bold;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 .header {
     @media (min-width: $break_md) {
         padding-right: 0;
@@ -97,13 +101,26 @@ strong {
         padding-top: 0;
         padding-bottom: 0;
     }
-    position: relative;
+    position: fixed;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 70px;
     background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .3s ease, visibility .3s ease, pointer-events .3s ease;
+
+    &_hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
 
     &_hamburger {
         top: 11px;

@@ -20,6 +20,7 @@
         height: 36px;
         background-color: $blue;
         border-radius: 50%;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
     }
     &__link {
         @media (min-width: $break_md) {

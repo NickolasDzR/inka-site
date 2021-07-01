@@ -1,6 +1,6 @@
 "use strict";
 
-import { paths } from "../gulpfile.babel";
+import {paths} from "../gulpfile.babel";
 import gulp from "gulp";
 import gulpif from "gulp-if";
 import imagemin from "gulp-imagemin";
@@ -21,7 +21,7 @@ gulp.task("images", () => {
         .pipe(newer(paths.images.dist))
         .pipe(gulpif(production, imagemin([
             imagemin.gifsicle({interlaced: true}),
-            imagemin.mozjpeg({quality: 95, progressive: true}),
+            imagemin.mozjpeg({quality: 100, progressive: true}),
             imagemin.optipng({optimizationLevel: 5}),
             imagemin.svgo({
                 plugins: [

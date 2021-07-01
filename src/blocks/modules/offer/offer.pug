@@ -5,11 +5,12 @@ mixin offer(value = false)
                 .row
                     +e.UL.content
                         +e.LI.item._flex._md_mb-45
-                            +e.logo
-                                +icon({
-                                    name: "logo-label",
-                                    class: "offer__svg"
-                                })
+                            +e.logo-wrp
+                                +e.logo
+                                    +icon({
+                                        name: "logo-label",
+                                        class: "offer__svg"
+                                    })
                             +e.text
                                 +e.P.title Try Inka
                                 +e.P.subtitle Ready to explore Inka?
@@ -26,4 +27,4 @@ mixin offer(value = false)
                                         name: "qr-code",
                                         class: "offer__qr-code qr-code"
                                     })
-                +e.IMG.phone(class="lozad" data-src=`img/content/iphone.webp` data-srcset=`img/content/iphone@x2.webp 2x` alt="Картинка приложения inka")
+                    +e.IMG.phone(class="lozad" data-src=`img/content/iphone.webp` data-srcset=`img/content/iphone@x2.webp 2x` width="148" height="300" alt="Картинка приложения inka")

@@ -9,7 +9,7 @@ mixin steps(value = false)
                             +e.LI.item
                                 +e.number
                                     +e.number-text-wrp
-                                        +e.number-text #{i}
+                                        +e.number-text #{i + 1}
                                 +e.SPAN.text #{value.text[i]}
                     +e.curve-wrp
                         each val, i in value.imagesUrl

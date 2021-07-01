@@ -1,4 +1,6 @@
 .offer {
+
+    position: relative;
     @media (min-width: $break_xl) {
         padding: 90px 0 100px;
     }
@@ -15,65 +17,56 @@
         }
     }
 
-    padding-bottom: 70px;
-    position: relative;
-    overflow: hidden;
-
     &__phone {
+        display: block;
+        order: 0;
+        position: absolute;
+        top: -60px;
+        right: 50%;
+        left: 50%;
+        transform: translate(-50%);
         @media (min-width: $break_xl) {
-            width: 312px;
             bottom: -395px;
+            width: 312px;
         }
         @media (min-width: $break_sm) {
             right: 15px;
             left: auto;
             transform: translateX(0);
         }
-        width: 250px;
-        display: block;
-
-        position: absolute;
-        bottom: -177px;
-        left: 50%;
-        right: 50%;
-        transform: translateX(-50%);
     }
 
     &__wrp {
+        padding: 264px 0 36px;
+        background-color: $gray;
         @media (min-width: $break_lg) {
             padding: 76px 0;
         }
         @media (min-width: $break_sm) {
             padding: 60px 0 25px;
         }
-        padding: 48px 0 270px;
-        background-color: $gray
     }
 
     &__content {
+        @include col();
+        @include size(12);
+        display: flex;
+        flex-wrap: wrap;
+        order: 1;
         @media (min-width: $break_xs) {
             display: flex;
             flex-wrap: wrap;
         }
         @media (min-width: $break_lg) {
             display: flex;
-            justify-content: flex-start;
-            align-items: flex-end;
             flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: flex-start;
         }
-        @include col();
-        @include size(12);
     }
 
     &__item {
-        &:nth-child(1) {
-            @media (min-width: $break_xs) {
-                width: 100%;
-            }
-            @media (min-width: $break_xl) {
-                width: auto;
-            }
-        }
+        margin-bottom: 15px;
 
         @media (min-width: $break_xl) {
             margin-bottom: 0;
@@ -85,10 +78,16 @@
         @media (min-width: $break_sm) {
             width: 100%;
         }
-        margin-bottom: 15px;
+        &:nth-child(1) {
+            width: 100%;
+            @media (min-width: $break_xl) {
+                width: auto;
+            }
+        }
 
         &_flex {
             display: flex;
+            flex-wrap: wrap;
         }
 
         &_md_mb-45 {
@@ -108,58 +107,69 @@
         }
 
         & + & {
-            margin-right: 15px;
+            margin-right: 6px;
         }
     }
 
+    &__logo-wrp {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
     &__logo {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(48.44deg, #c4cdff 0%, #7171ff 50.83%, #1c1c9d 100%);
+        border-radius: 12px;
+        margin-bottom: 16px;
+
         @media (min-width: $break_md) {
             width: 80px;
             height: 80px;
             border-radius: 16px;
         }
-        width: 45px;
-        height: 45px;
-        background: linear-gradient(48.44deg, #C4CDFF 0%, #7171FF 50.83%, #1C1C9D 100%);
-        border-radius: 12px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        margin-right: 15px;
     }
 
     &__svg {
+        display: block;
+        z-index: 1;
+        width: 25px;
+        height: 25px;
         @media (min-width: $break_md) {
             width: 44px;
             height: 44px;
             border-radius: 16px;
         }
-        display: block;
-        width: 25px;
-        height: 25px;
-        z-index: 1;
+    }
+
+    &__text {
+        margin: 0 auto;
+        text-align: center;
     }
 
     &__title {
-        @media (min-width: $break_md) {
-            font-size: 36px;
-            margin-bottom: 11px;
-        }
         margin: 0;
         padding: 0;
         font-size: 24px;
         font-weight: 500;
+        @media (min-width: $break_md) {
+            font-size: 36px;
+            margin-bottom: 11px;
+        }
     }
 
     &__subtitle {
-        @media (min-width: $break_md) {
-            font-size: 24px;
-        }
         margin: 0;
         padding: 0;
         font-size: 16px;
+        @media (min-width: $break_md) {
+            font-size: 24px;
+        }
     }
 
     &__app-store-img {
@@ -179,11 +189,10 @@
     }
 
     &__qr-code {
-        @extend .title__qr-code
+        @extend .title__qr-code;
     }
 
     &__qr-code-image {
-        @extend .title__qr-code-image
+        @extend .title__qr-code-image;
     }
-
 }

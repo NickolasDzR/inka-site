@@ -40,8 +40,8 @@
     }
     &__number {
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
 
         background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
         box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
@@ -60,7 +60,7 @@
     &__number-text {
         display: block;
         font-weight: bold;
-        font-size: 36px;
+        font-size: 28px;
 
         background: linear-gradient(192.44deg, #C4CDFF 0%, #7171FF 70.83%, #1C1C9D 100%);
         -webkit-background-clip: text;
@@ -70,8 +70,9 @@
         @media (min-width: $break_md) {
             width: auto;
             padding: 15px 30px;
+            font-size: 24px;
         }
-        width: 50%;
+        width: 70%;
         text-align: center;
 
         font-size: 18px;

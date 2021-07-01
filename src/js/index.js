@@ -1,7 +1,7 @@
 import "./import/modules";
 import "./import/components";
 
-import lozad from 'lozad'
+import lozad from "lozad";
 
 const titleImg = document.querySelectorAll(".lozad");
 const observerTitle = lozad(titleImg);
@@ -26,28 +26,28 @@ appStoreLink.forEach((el) => {
                 arImgTriangle.style.transform = null;
                 arImgTriangle.style.left = null;
                 arImgTriangle.style.right = null;
-            }, 300)
+            }, 300);
         }
         if (qrImg.getBoundingClientRect().left < 0) {
             const left = Math.abs(qrImg.getBoundingClientRect().left);
             qrImg.style.left = `${parseInt(qrImg.style.left) + (left + 5)}px`;
 
             arImgTriangle.style.left = `${el.getBBox().width}px`;
-            arImgTriangle.style.right = `auto`;
-            arImgTriangle.style.transform = 'none'
+            arImgTriangle.style.right = "auto";
+            arImgTriangle.style.transform = "none";
         }
         if (qrImg.getBoundingClientRect().right - window.innerWidth > 0) {
             const right = qrImg.getBoundingClientRect().right - window.innerWidth;
             qrImg.style.left = `${parseInt(qrImg.style.left) - (right + 5)}px`;
             arImgTriangle.style.right = `${el.getBBox().width}px`;
-            arImgTriangle.style.left = `auto`;
-            arImgTriangle.style.transform = 'none'
+            arImgTriangle.style.left = "auto";
+            arImgTriangle.style.transform = "none";
         }
 
         qrImg.classList.toggle("qr-code-image_active");
 
     });
-})
+});
 
 const offsetOfQrCode = (el) => {
     var rect = el.getBoundingClientRect(),
@@ -56,5 +56,14 @@ const offsetOfQrCode = (el) => {
         centerWidth = el.getBBox().height,
         centerHeight = el.getBBox().width / 2;
 
-    return {top: rect.top + scrollTop + centerWidth, left: rect.left + scrollLeft + centerHeight}
-}
+    return {top: rect.top + scrollTop + centerWidth, left: rect.left + scrollLeft + centerHeight};
+};
+
+window.addEventListener("scroll", () => {
+    console.log("sadasd");
+    if (scrollY > 0) {
+        document.querySelector("header").classList.add("header_hidden");
+    } else {
+        document.querySelector("header").classList.remove("header_hidden");
+    }
+});
