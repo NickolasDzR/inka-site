@@ -129,3 +129,21 @@ function checkSTState() {
         animationFixes.enable();
     }
 }
+
+
+contentMarkserBlock.forEach(elem => {
+    const fadeItems = gsap.timeline({
+        scrollTrigger: {
+            trigger: elem,
+            start: "top+=30% 80%",
+            end: "bottom+=40% 50%",
+            scrub: true,
+            toggleActions: "play reverse play reverse",
+        }
+    });
+
+    fadeItems
+        .to(elem, { opacity: 1, duration: 0.2, stagger: 0.1 })
+        .to(elem, { opacity: 0, duration: 0.2, stagger: 0.1 }, 0.8 )
+    ;
+});

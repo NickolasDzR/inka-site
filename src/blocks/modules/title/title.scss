@@ -1,44 +1,48 @@
 .title {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    @media (min-width: $break_md) {
+        padding-top: 170px;
+        padding-bottom: 130px;
+    }
     @media (min-width: $break_xl) {
-        padding-top:150px;
+        padding-top: 150px;
         padding-bottom: 150px;
     }
-    padding-top: 60px;
-    padding-bottom: 80px;
     &__content {
-        @media (min-width: $break_lg) {
-            width: 687px;
-        }
         @include col();
         @include size(12);
         display: flex;
         flex-direction: column;
+        @media (min-width: $break_lg) {
+            width: 687px;
+        }
     }
     &__img-title {
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 45px;
         @media (min-width: $break_sm) {
             margin-bottom: 70px;
         }
         @media (min-width: $break_md) {
             display: none;
         }
-        height: auto;
-        margin: 0 auto;
-        margin-bottom: 45px;
     }
     &__img-app {
+        display: block;
         @media (min-width: $break_sm) {
             width: 184px;
             height: 64px;
         }
-        display: block;
     }
 
     &__img {
+        display: none;
+        width: calc(100% - 717px);
         @media (min-width: $break_lg) {
             display: block;
         }
-        display: none;
-        width: calc(100% - 717px);
     }
 
     &__row {
@@ -48,20 +52,22 @@
     }
 
     &__heading {
+        font-weight: 700;
+        font-size: 36px;
+        width: 100%;
+        margin-bottom: 25px;
+        text-align: center;
         @media (min-width: $break_md) {
+            font-size: 48px;
             margin-bottom: 64px;
         }
         @media (min-width: $break_lg) {
             text-align: left;
         }
-        font-weight: bold;
-        font-size: 36px;
-        width: 100%;
-        margin-bottom: 25px;
-        text-align: center;
     }
 
     &__list {
+        margin-bottom: 25px;
         @media (min-width: $break_sm) {
             display: flex;
             justify-content: flex-start;
@@ -78,10 +84,16 @@
         @media (min-width: $break_xl) {
             margin-bottom: 120px;
         }
-        margin-bottom: 25px;
     }
 
     &__item {
+
+        display: flex;
+        align-items: center;
+
+        font-size: 18px;
+        color: $font-light-black;
+        position: relative;
         @media (min-width: $break_sm) {
             box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
@@ -99,44 +111,37 @@
             width: 200px;
             padding: 24px;
         }
-
-        display: flex;
-        align-items: center;
-
-        font-size: 18px;
-        color: $font-light-black;
-        position: relative;
         &_text_big {
             font-size: 48px;
             font-weight: 500;
         }
         & + & {
+            margin-top: 24px;
             @media (min-width: $break_sm) {
                 margin-top: 0;
-                margin-left: 15px;;
+                margin-left: 30px;
             }
-            margin-top: 24px;
         }
     }
     &__item-text {
+        font-size: 18px;
         @media (min-width: $break_sm) {
-            width: 100%;
-            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
-        font-size: 18px;
     }
     &__strong {
+        font-size: 20px;
         @media (min-width: $break_md) {
             font-size: 22px;
         }
         @media (min-width: $break_lg) {
             font-size: 24px;
         }
-        font-size: 20px;
         &_big {
             @media (min-width: $break_lg) {
                 font-size: 48px;
@@ -145,42 +150,43 @@
         }
     }
     &__list-svg {
+        display: block;
+        width: 13px;
+        min-width: 13px;
+        height: 20px;
+        min-height: 20px;
+        margin-right: 25px;
         @media (min-width: $break_sm) {
             display: none;
         }
-        width: 13px;
-        height: 20px;
-        min-width: 13px;
-        min-height: 20px;
-        margin-right: 25px;
-        display: block;
     }
 
     &__worth {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 25px;
         @media (min-width: $break_md) {
             margin-bottom: 60px;
         }
         @media (min-width: $break_md) {
             margin-bottom: 86px;
         }
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        margin-bottom: 25px;
     }
 
     &__worth-item {
-        @media (min-width: $break_md) {
-            max-width: 200px;
-        }
         @include u-col(0);
         width: 100%;
         font-size: 18px;
         line-height: 32px;
         color: $font-light-black;
+        @media (min-width: $break_md) {
+            max-width: 200px;
+        }
     }
 
     &__worth-item + &__worth-item {
+        margin-top: 35px;
         @media (min-width: $break_md) {
             margin-top: 0;
             margin-left: 15px;
@@ -188,32 +194,31 @@
         @media (min-width: $break_xl) {
             margin-left: 36px;
         }
-        margin-top: 35px;
     }
 
     &__worth-item-wrp {
-        @media (min-width: $break_md) {
-            height: 100%;
-        }
         max-width: 200px;
         padding: 32px 24px;
         box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.1);
         border-radius: 20px;
+        @media (min-width: $break_md) {
+            height: 100%;
+        }
     }
 
     &__app-store {
-        @media (min-width: $break_lg) {
-            justify-content: flex-start
-        }
         display: flex;
         justify-content: center;
+        @media (min-width: $break_lg) {
+            justify-content: flex-start;
+        }
     }
 
     &__app-store-item {
+        margin-bottom: 10px;
         @media (min-width: $break_sm) {
             margin-bottom: 0;
         }
-        margin-bottom: 10px;
         & + & {
             margin-left: 15px;
         }
@@ -233,13 +238,13 @@
         height: 100px;
     }
     &__qr-code {
+        display: block;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
         @media (min-width: $break_sm) {
             width: 64px;
             height: 64px;
         }
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        display: block;
     }
 }

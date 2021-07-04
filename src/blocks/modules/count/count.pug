@@ -4,9 +4,12 @@ mixin count(value = false)
         .container
             .row
                 +e.UL.list
-                    each val in value.countList
+                    each val, index in value.countList
                         +e.LI.item(data-counter-num=val[0] data-counter-speed=val[2])
-                            +e.P.number 0
+                            if (index === 1)
+                                +e.P.number <span>0</span>+
+                            else
+                                +e.P.number <span>0</span>
                             +e.P.text #{val[1]}
         +e.IMG(class="background-img-mob lozad" data-src=`img/content/products-number-mob.webp` data-srcset=`img/content/products-number-mob@x2.webp 2x` media="(min-width: 420px)")
             .container

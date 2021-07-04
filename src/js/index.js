@@ -60,7 +60,6 @@ const offsetOfQrCode = (el) => {
 };
 
 window.addEventListener("scroll", () => {
-    console.log("sadasd");
     if (scrollY > 0) {
         document.querySelector("header").classList.add("header_hidden");
     } else {

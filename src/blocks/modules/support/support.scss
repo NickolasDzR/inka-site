@@ -1,6 +1,6 @@
 .support {
     background-color: $gray;
-    padding: 48px 0;
+    padding: 48px 0 23px;
     &__heading {
         width: 100%;
         text-align: center;
@@ -14,6 +14,8 @@
         display: block;
         width: 60px;
         height: 60px;
+        border-radius: 50%;
+        background-color: #fff;
     }
     &__list {
         @media (min-width: $break_sm) {
@@ -36,5 +38,6 @@
         display: flex;
         justify-content: center;
         margin-bottom: 25px;
+        color: $font-black;
     }
 }

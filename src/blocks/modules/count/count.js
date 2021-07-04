@@ -1,34 +1,39 @@
 const count = document.querySelector(".count"),
     countItems = count.querySelectorAll(".count__item");
 
-const animateValue = (elem, start, end, duration) => {
+const animateValue = (elem, start) => {
+    const duration = parseInt(elem.dataset.counterSpeed);
+    const end = parseInt(elem.dataset.counterNum);
+
     if (start === end) return;
     const range = end - start;
     let current = start;
-    const increment = end < start? 1 : +1;
-    const stepTime = Math.abs(Math.floor(duration / range));
-    const item = elem;
-    const itemText = elem.querySelector(".count__number");
-    const timer = setInterval(function() {
+    const increment = end < start ? 1 : +1;
+    const stepTime = Math.abs(duration / range) * 1000;
+    const itemText = elem.querySelector(".count__number span");
+    const timer = setInterval(function () {
         current += increment;
         itemText.innerHTML = current;
-        if (current == end) {
+        if (current == end && duration) {
             clearInterval(timer);
+            if (countItemsIndex < countItems.length - 1) {
+
+
+                countItemsIndex += 1;
+                animateValue(countItems[countItemsIndex], countItemsIndex);
+            }
         }
     }, stepTime);
-}
+};
 
-countItems.forEach((elem, index) => {
-    const countNum = elem.dataset.counterNum;
-    const countSpeed = elem.dataset.counterSpeed;
+let countItemsIndex = 0;
 
-    const isObserved = (entry) => {
-        if (entry[0].intersectionRatio > 0) {
-            animateValue(entry[0].target, 0, parseInt(countNum), `${parseInt(countSpeed)}000`);
-            observer.unobserve(elem);
-        }
-    };
+const isObserved = (entry) => {
+    if (entry[0].intersectionRatio > 0) {
+        animateValue(countItems[0], countItemsIndex);
+        observer.unobserve(count);
+    }
+};
 
-    const observer = new IntersectionObserver(isObserved);
-    observer.observe(elem);
-});
+const observer = new IntersectionObserver(isObserved);
+observer.observe(count);

@@ -69,15 +69,15 @@ mixin slider(value = false)
                         +e.slider-cotroller-inner
                             +e.IMG.logo-small.lozad(class="lozad" alt="Логотип inka" data-src=`img/content/logo-small.webp` data-srcset=`img/content/logo-small@x2.webp 2x`)
                 +e.slides.glide
+                    +e.P.sign
+                        +icon({
+                            name: "stats",
+                            class: "slider__slide-svg"
+                        })
+                        | Inka. Benefits
                     +e.slides-wrp(data-glide-el="track" data-autoplay-speed="4" class="glide__track")
                         +e.UL.items.glide__slides
                             each val, index in value.slides
                                 +e.LI.item.glide__slide
-                                    +e.P.sign
-                                        +icon({
-                                            name: "stats",
-                                            class: "slider__slide-svg"
-                                        })
-                                        | Inka. Benefits
                                     +e.P.title #{val[0]}
                                     +e.P.subtitle #{val[1]}
