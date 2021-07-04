@@ -345,7 +345,7 @@
     }
 }
 
-@keyframes cryptoRotate {
+@keyframes cryptorotate {
     from {
         transform: rotate(0deg);
     }
@@ -353,13 +353,3 @@
         transform: rotate(360deg);
     }
 }
-
-@keyframes cryptoScale {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.2);
-    }
-}
-

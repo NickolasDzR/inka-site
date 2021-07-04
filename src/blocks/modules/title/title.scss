@@ -220,7 +220,10 @@
             margin-bottom: 0;
         }
         & + & {
-            margin-left: 15px;
+            @media (min-width: $break_xs) {
+                margin-left: 15px;
+            }
+            margin-left: 5px;
         }
     }
 

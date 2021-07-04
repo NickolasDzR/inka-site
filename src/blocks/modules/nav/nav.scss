@@ -113,6 +113,10 @@ $staticNavigationMediaBreak: $break_md;
         color: #616161;
         @media (min-width: $break_md) {
             transform: translateZ(0);
+            padding: {
+                right: 15px;
+                left: 15px;
+            }
         }
         &:before {
             content: "";

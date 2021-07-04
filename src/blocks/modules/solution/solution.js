@@ -14,7 +14,7 @@ window.addEventListener("resize", function () {
 
 });
 
-const getCoords = (elem) => { // crossbrowser version
+const getCoords = (elem) => {
     var box = elem.getBoundingClientRect();
 
     var body = document.body;
@@ -93,7 +93,6 @@ function getCurrentSection() {
     // Find the current section
     contentMarkserBlock.forEach(marker => {
 
-        // const elemHeight = marker.content.offsetHeight;
         if (currScroll > getCoords(marker).top) {
             newContent = marker.content;
         }
@@ -131,7 +130,7 @@ function checkSTState() {
 }
 
 
-contentMarkserBlock.forEach(elem => {
+contentMarkserBlock.forEach((elem, index) => {
     const fadeItems = gsap.timeline({
         scrollTrigger: {
             trigger: elem,
@@ -141,9 +140,12 @@ contentMarkserBlock.forEach(elem => {
             toggleActions: "play reverse play reverse",
         }
     });
-
-    fadeItems
-        .to(elem, { opacity: 1, duration: 0.2, stagger: 0.1 })
-        .to(elem, { opacity: 0, duration: 0.2, stagger: 0.1 }, 0.8 )
-    ;
+    if (index !== contentMarkserBlock.length - 1) {
+        fadeItems
+            .to(elem, {opacity: 1, duration: 0.2, stagger: 0.1})
+            .to(elem, {opacity: 0, duration: 0.2, stagger: 0.1}, 0.8);
+    } else {
+        fadeItems
+            .to(elem, {opacity: 1, duration: 0.2, stagger: 0.1});
+    }
 });

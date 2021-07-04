@@ -9,6 +9,7 @@
     }
     @media (min-width: $break_sm) {
         padding-bottom: 25px;
+        overflow-y: hidden;
     }
 
     .container {
@@ -26,10 +27,19 @@
         left: 50%;
         transform: translate(-50%);
         @media (min-width: $break_xl) {
-            bottom: -395px;
+            top: -140px;
             width: 312px;
         }
+        @media (min-width: $break_md) {
+            top: 80px;
+        }
+        @media (min-width: $break_lg) {
+            top: 21px;
+        }
         @media (min-width: $break_sm) {
+            width: 240px;
+            height: auto;
+            top: 20px;
             right: 15px;
             left: auto;
             transform: translateX(0);
@@ -52,6 +62,7 @@
         @include size(12);
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         order: 1;
         @media (min-width: $break_xs) {
             display: flex;
@@ -60,7 +71,7 @@
         @media (min-width: $break_lg) {
             display: flex;
             flex-wrap: wrap;
-            align-items: flex-end;
+            align-items: center;
             justify-content: flex-start;
         }
     }
@@ -107,11 +118,18 @@
         }
 
         & + & {
+            @media (min-width: $break_xs) {
+                margin-right: 15px;
+            }
             margin-right: 6px;
         }
     }
 
     &__logo-wrp {
+        @media (min-width: $break_sm) {
+            width: auto;
+            margin-right: 24px;
+        }
         display: flex;
         justify-content: center;
         width: 100%;
@@ -148,11 +166,17 @@
     }
 
     &__text {
+        @media (min-width: $break_sm) {
+            margin-left: 0;
+        }
         margin: 0 auto;
         text-align: center;
     }
 
     &__title {
+        @media (min-width: $break_sm) {
+            text-align: left;
+        }
         margin: 0;
         padding: 0;
         font-size: 24px;

@@ -10,7 +10,9 @@
             align-items: center;
             justify-content: flex-start;
             margin: 130px 0;
-            opacity: 0;
+            &:not(:first-of-type) {
+                opacity: 0;
+            }
         }
 
         &:last-child {
@@ -21,7 +23,7 @@
             margin-top: 0;
         }
 
-        &:not(:first-of-type):not(:last-of-type) {
+        & {
             display: flex;
             flex-direction: column;
             padding: 40px 0;
@@ -110,7 +112,7 @@
                 animation: none;
             }
             animation: {
-                name: fadeinleft;
+                name: fadeInLeft;
                 timing-function: ease;
                 duration: .8s;
                 fill-mode: both;
